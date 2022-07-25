@@ -1,0 +1,164 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contents-container {
+    margin-top: 9.72vh;
+    margin-left: 2.86vw;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    max-width: 33.23vw;
+}
+
+.title-animation {
+    max-width: 33.23vw;
+    animation: template_1_tile 0.4s;
+}
+
+.comment {
+    max-width: 33.23vw;
+    padding-top: 4.63vh;
+    padding-bottom: 2.78vh;
+}
+
+.comment-animation {
+    max-width: 33.23vw;
+    padding-top: 4.63vh;
+    padding-bottom: 2.78vh;
+
+    animation: bottom-to-top 0.5s;
+}
+
+.description {
+    max-width: 33.23vw;
+    color: #CCCCCC;
+}
+
+.description-animation {
+    max-width: 33.23vw;
+    color: #CCCCCC;
+
+    animation: bottom-to-top2 0.8s;
+}
+
+.page-lenght {
+    font-family: 'Hyundai Sans Head Medium';
+    font-weight: 500;
+    font-size: 3.24vh;
+    line-height: 4.01vh;
+}
+
+.contents-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page_number {
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
+}
+
+.video-thumb-img {
+    width: 11.82vw;
+    height: 7.16vw;
+}
+
+.video-thumb-img-open {
+    width: 11.82vw;
+    height: 7.16vw;
+
+    position: relative;
+    z-index: 5;
+
+    animation: video-tmp-img-animation 0.8s;
+}
+
+.vedio_img_container {
+    margin-right: 2.03vw;
+}
+
+.vedio_img_container-animation {
+    margin-right: 2.03vw;
+
+    animation: template-1-video-img 0.4s;
+}
+
+.vedio_img_container-animation2 {
+    margin-right: 2.03vw;
+
+    animation: template-1-video-img2 1.2s;
+}
+
+.img-container {
+    flex: 1;
+    padding-top: 6.48vh;
+    padding-right: 2.34vw;
+    float: right;
+    display: flex;
+    justify-content: center;
+}
+
+.img-container-animation {
+    flex: 1;
+    padding-top: 6.48vh;
+    padding-right: 2.34vw;
+    float: right;
+    display: flex;
+    justify-content: center;
+
+    animation: template_1_img 0.4s;
+}
+
+.img {
+    /*
+    width: 95.37vh;
+    height: 80.55vh;
+    */
+    width: 52.64vw;
+    height: 45.3125vw;
+}
+
+.video-tmp-img {
+    visibility: hidden;
+    position: absolute;
+    left: 30.15625vw;
+    top: 41.771vw;
+    width: 11.823vw;
+    height: 7.16354vw;
+
+    animation: video-tmp-img-animation 2s;
+}
+
+.video_img-open-animation {
+    animation:  video_img-open-animation 0.8s forwards;
+}
+
+.video-thumb-btn {
+    position: relative;
+}
+
+.video-thumb-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup-video-open-animation {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.7;
+    background-color: #000000;
+
+    animation: common_popup-open 0.8s;
+}

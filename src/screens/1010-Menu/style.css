@@ -1,0 +1,73 @@
+.menu-background {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00aad2;
+  z-index: 3;
+}
+
+.menu-background-open {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00aad2;
+  z-index: 3;
+
+  animation: menu-background-open 0.6s;
+  animation-timing-function: cubic-bezier(0.57,-0.21,0.47, 1.21);
+}
+
+.menu-background-close {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 120vh;
+  background-color: #00aad2;
+  z-index: 3;
+
+  animation: menu-background-close 0.6s;
+  animation-timing-function: cubic-bezier(0.57,-0.21,0.47, 1.21);
+}
+
+/* .menu-open-animation {
+  animation: menu-open 0.6s 0.3s;
+} */
+
+.vehicle-list {
+  position: absolute;
+  top: 19vh;
+  left: 14vw;
+}
+
+.list-title {
+  margin-bottom: 4.35vh;
+}
+
+.vehicle-list > li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+.list-item {
+  margin-top: 0px;
+  margin-bottom: 4.63vh;
+}
+
+.menu-close {
+  position: absolute;
+  bottom: 3.7vh;
+  right: 3.7vh;
+}
+
+.version-text {
+  position: absolute;
+  bottom: 3.7vh;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}

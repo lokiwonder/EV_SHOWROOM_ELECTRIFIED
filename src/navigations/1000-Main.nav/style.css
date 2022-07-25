@@ -1,0 +1,102 @@
+.main-logo {
+  width: 10.26vw;
+  height: 1.40625vw;
+}
+
+.main-nav {
+  width: 100vw;
+  height: 4.427vw;
+  margin: 0 auto;
+  position: absolute;
+  background-color: #ffffff;
+  bottom: 0px;
+  display: flex;
+  z-index: 2;
+  justify-content: space-between;
+}
+
+.main-nav-left {
+  display: flex;
+  align-items: center;
+  margin-left: 2.34375vw;
+}
+
+.main-nav-right {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5625vw;
+}
+
+.main-nav-right > button {
+  margin-left: 0.78125vw;
+  margin-right: 0.78125vw;
+}
+
+.main-nav-img-btn {
+  width: 1.5625vw;
+  height: 1.5625vw;
+}
+
+.language-menu-open {
+  position: absolute;
+  bottom: 4.427vw;
+  right: 2.34375vw;
+  width: 7.8125vw;
+  padding-bottom: 1.04166vw; 
+  margin-bottom: 1.4973958vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+  border-radius: 3px; 
+  z-index: 1;
+  animation: language-open-animation 0.4s;
+  animation-timing-function: cubic-bezier(0.57,-0.21,0.47, 1.21);
+}
+
+.language-menu-close {
+  position: absolute;
+  bottom: 4.427vw;
+  right: 2.34375vw;
+  width: 7.8125vw;
+  padding-bottom: 1.04166vw; 
+  margin-bottom: 1.4973958vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+  border-radius: 3px; 
+  z-index: 1;
+  animation: language-close-animation 0.4s;
+  animation-timing-function: cubic-bezier(0.57,-0.21,0.47, 1.21);
+}
+
+.language-list {
+  position:relative;
+  padding-top: 1.04166vw; 
+  color: #A36B4F; 
+}
+
+.language-list:after {
+  content:""; 
+  position: absolute; 
+  right: 2.9296875vw; 
+  margin-top: 1.04166vw; 
+  border-left: 0.9765625vw solid transparent; 
+  border-right: 0.9765625vw solid transparent; 
+  border-top: 0.9765625vw solid  rgba(255, 255, 255, 0.9);
+}
+
+.language-item {
+  text-align: center;
+  margin: 0px;
+  padding-top: 0.78125vw;
+  padding-bottom: 0.78125vw;
+}
+
+.language-item-active {
+  text-align: center;
+  margin: 0px;
+  padding-top: 0.78125vw;
+  padding-bottom: 0.78125vw;
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 2.22vh;
+  line-height: 2.778vh;
+}

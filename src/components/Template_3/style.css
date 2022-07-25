@@ -1,0 +1,25 @@
+.template-3-image-box {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.template-3-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.template-3-image-animaion {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: template_3_img 0.6s;
+}
+
+.template-3-image-animaion2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: template_3_img2 0.6s;
+}

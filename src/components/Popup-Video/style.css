@@ -1,0 +1,87 @@
+.popup-video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    z-index: 1;
+}
+
+.popup-video-background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.7;
+    background-color: #000000;
+
+    /* animation: common_popup-open 0.8s; */
+}
+
+.popup-video-close-animation {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.7;
+    background-color: #000000;
+
+    animation: common_popup-close 1.2s;
+}
+
+.popup-container-open-animation {
+    position: relative;
+    margin: 4.17vh;
+    flex: 1;
+}
+
+.popup-container-close-animation {
+    position: relative;
+    margin: 4.17vh;
+    flex: 1;
+}
+
+.popup-close-img {
+    width: 3.63vh;
+    height: 3.63vh;
+}
+
+.popup-close-btn {
+    position: relative;
+    float: right;
+    top: 2.315vh;
+    right: 5.5557vh;
+    z-index: 5;
+}
+
+.popup-close-btn-open-animation {
+    /* animation: video-popup-close-btn-open 1s; */
+}
+
+.popup-close-btn-close-animation {
+    animation: video-popup-close-btn-close 1.2s;
+}
+
+.popup-tmp-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.popup-media-open {
+    display: inline-block;
+    /* animation: common_popup-open 0.6s; */
+}
+
+.popup-media-close {
+    display: inline-block;
+    /* animation: common_popup-close 0.6s; */
+    animation: video-popup-close 0.8s ease-in;
+}

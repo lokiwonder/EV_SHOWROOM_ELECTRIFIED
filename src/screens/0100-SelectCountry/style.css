@@ -1,0 +1,150 @@
+  .country-background {
+    background-color: #002c5f;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .country-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .showroom-logo {
+    padding-top: 2.777777vh;
+    padding-bottom: 5.5555555vh;
+  }
+
+  .select-nav-logo {
+    position: absolute;
+    bottom: 2.924vh;
+    left: 2.34375vw;
+    width: 10.26vw;
+    height: 1.428125vw;
+  }
+
+  .country-selector {
+    width: 26.05vw;
+    height: 4.17vw;
+    background-color: #FFFFFF;
+    border-radius: 4px 4px 0px 0px;
+    border-radius: 4px;
+
+    box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 1.851851vh;
+  }
+
+  .selector-box {
+    width: 26.05vw;
+    max-height: 83.333vh;
+    overflow-y: auto;
+    background-color: #FFFFFF;
+    border-top: 1px solid #EEEEEE;
+    border-radius: 4px 4px 4px 4px;
+
+    box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .selector-box::-webkit-scrollbar {
+    display: inline;
+  }
+
+  .selector-box>ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .selector-box>ul>li {
+    padding-top: 1.302vw;
+    padding-bottom: 0.650vw;
+  }
+
+  .country-selector > .b3 {
+    padding-left: 1.82vw;
+  }
+
+  .country-selector > .active {
+    color: #CCCCCC;
+  }
+
+  .selectort-arrow {
+    height: 0.58vw;
+    width: 1.090625vw;
+    padding-right: 1.82vw;
+  }
+
+  .flag-image {
+    width: 2.23vw;
+    height: 1.5625vw;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+  }
+
+  .conuntry-en-name {
+    opacity: 0.7;
+    padding-left: 1.823vw;
+    /* padding-left: 1.823vw; */
+  }
+
+  .conuntry-name {
+    opacity: 0.7;
+    padding-left: 1.823vw;
+  }
+
+  .selected-country {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .confirm-button {
+    position: absolute;
+    width: 9.8958vw;
+    height: 3.6458vw;
+    border: 2px solid #FFFFFF;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 4px; 
+    right: 2.34375vw;
+    bottom: 2.7778vh;
+
+    font-family: 'Hyundai Sans Head Medium';
+    font-weight: 500;
+    font-size: 2.222vh;
+    line-height: 2.7778vh;
+  }
+
+  .select-country-nav {
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .selector-box-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .country-select-box {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .counter-select-logo-img {
+    width: 8.8541666vw;
+    height: 8.8541666vw;
+  }
+  

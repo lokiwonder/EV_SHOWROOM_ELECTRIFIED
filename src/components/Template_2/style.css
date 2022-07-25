@@ -1,0 +1,31 @@
+.template-2-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 9.07vh;
+}
+
+.template-2-item {
+  display: inline-block;
+  margin: 0 0.41vw;
+}
+
+.template-2-img{
+  width: 28.34vw;
+  height: 70.37vh;
+}
+
+.template-2-img-animation {
+  animation: template_2_img 0.6s;
+  animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+}
+
+.template-2-comment {
+  padding-top: 2.87vh;
+  padding-right: 2.4vw;
+  width: 25.99vw;
+}
+
+.template-2-comment-animation {
+  animation: template_2_comment 0.3s;
+  animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+}

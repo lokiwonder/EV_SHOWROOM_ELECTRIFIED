@@ -1,0 +1,669 @@
+@font-face {
+  font-family: 'Hyundai Sans Head Regular';
+  src: url('./assets/fonts/HyundaiSansHead-Regular.woff');
+}
+
+@font-face {
+  font-family: 'Hyundai Sans Head Medium';
+  src: url('./assets/fonts/HyundaiSansHead-Medium.woff');
+}
+
+body {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+
+.primary-blue {
+  color: #002c5f;
+}
+.black {
+  color: #000000;
+}
+.gray {
+  color: #dddddd;
+}
+.light-gray {
+  color: #eeeeee;
+}
+.white {
+  color: #ffffff;
+}
+.brown {
+  color: #a36b4f;
+}
+.sand {
+  color: #e4dcd3;
+}
+.light-sand {
+  color: #f6f3f2;
+}
+.active-blue {
+  color: #00aad2;
+}
+.skyblue {
+  color: #aacae6;
+}
+.active-red {
+  color: #e63312;
+}
+.dark-gray {
+  color: #1C1B1B;
+}
+.deep-gray {
+  color: #7F7F7E
+}
+
+.bg-primary-blue {
+  background-color: #002c5f;
+}
+.bg-black {
+  background: #000000;
+}
+.bg-gray {
+  background: #dddddd;
+}
+.bg-light-gray {
+  background: #eeeeee;
+}
+.bg-white {
+  background: #ffffff;
+}
+.bg-brown {
+  background: #a36b4f;
+}
+.bg-sand {
+  background-color: #e4dcd3;
+}
+.bg-light-sand {
+  background: #f6f3f2;
+}
+.bg-active-blue {
+  background: #00aad2;
+}
+.bg-skyblue {
+  background: #aacae6;
+}
+.bg-active-red {
+  background: #e63312;
+}
+
+h1 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 5.21vw;
+  line-height: 6.4375vw;
+}
+
+h2 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 3.125vw;
+  line-height: 3.8625vw;
+}
+
+h3 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 2.34375vw;
+  line-height: 2.896875vw;
+}
+
+h4 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 1.82vw;
+  line-height: 2.253125vw;
+}
+
+h5 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 1.5625vw;
+  line-height: 1.93125vw;
+}
+
+h6 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 1.042vw;
+  line-height: 1.2875vw;
+}
+
+.h1 {
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 5.21vw;
+  line-height: 6.4375vw;
+}
+
+.h2 {
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 3.125vw;
+  line-height: 3.8625vw;
+}
+
+.h3 {
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 2.34375vw;
+  line-height: 2.896875vw;
+}
+
+.h4 {
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 1.82vw;
+  line-height: 2.253125vw;
+}
+
+.h5 {
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 1.5625vw;
+  line-height: 1.93125vw;
+}
+
+.h6 {
+  font-family: 'Hyundai Sans Head Medium';
+  font-weight: 500;
+  font-size: 1.042vw;
+  line-height: 1.2875vw;
+}
+
+.b1 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 2.83vw;
+  line-height: 2.57vw;
+}
+
+.b2 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 1.5625vw;
+  line-height: 1.93125vw;
+}
+
+.b3 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 1.25vw;
+  line-height: 1.54vw;
+}
+
+.b4 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 0.625vw;
+  line-height: 0.7724vw;
+}
+
+.b5 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 0.52vw;
+  line-height: 0.64375vw;
+}
+
+.b6 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 1.04vw;
+  line-height: 1.2875vw;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  background: 0;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+progress {
+  width: 100vw;
+  height: 0.37vh;
+  position: absolute;
+  bottom: 7.87vh;
+  -webkit-appearance: none;
+}
+
+::-webkit-progress-bar {
+  background-color: #eeeeee;
+  height: 0.37vh;
+}
+
+::-webkit-progress-value {
+  background: #00aad2;
+  height: 0.37vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+/* display flex */
+.fx {
+  display: flex;
+}
+
+.bl {
+  display: block;
+}
+
+/* vertical & horizontal align with flex */
+.fx-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.fx-col {
+  flex-direction: column;
+}
+
+/* flex 1 */
+.fx-1 {
+  flex: 1;
+}
+
+/* Fit to device height */
+.vh-100 {
+  height: 100vh;
+}
+
+/* Fit to device width */
+.vw-100 {
+  width: 100vw;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+/* Model name */
+.model-name {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  font-family: 'Hyundai Sans Head';
+  font-size: 45px;
+  font-weight: 400;
+}
+
+.model-img {
+  margin: 60px 0px 60px 0px;
+}
+
+.right-arrow {
+  width: 0.83vw;
+  height: 2.31vh;
+}
+
+.display-none {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.hidden-fx {
+  visibility: hidden;
+  flex: 1;
+}
+
+@keyframes menu-background-open {
+  0% {
+    height: 120vh;
+    transform: translateY(100%);
+  }
+  99% {
+    height: 120vh;
+  }
+  100% {
+    height: 100vh;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes menu-background-close {
+  0% {
+    transform: translateY(000%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes gesture_prev {
+  from {
+    transform: translateX(-15%);
+  }
+  to {
+    transform: translateX(15%);
+  }
+}
+
+@keyframes gesture_next {
+  from {
+    transform: translateX(15%);
+  }
+  to {
+    transform: translateX(-15%);
+  }
+}
+
+@keyframes opacity-0-1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bottom-to-top {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes bottom-to-top2 {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes template_1_tile {
+  0% {
+    transform: translateX(-30%);
+  }
+  50% {
+    transform: translateX(1.5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes template_1_img {
+  0% {
+    transform: translateX(30%);
+  }
+  70% {
+    transform: translateX(-1.5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes template-1-video-img {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes template-1-video-img2 {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes template_2_img {
+  0% {
+    clip-path: inset(0px 100% 0px 0px);
+    opacity: 0;
+  }
+  12.5% {
+  }
+  62.5% {
+    clip-path: inset(0px 0% 0px 0px);
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes template_2_comment {
+  0% {
+    clip-path: inset(0px 100% 0px 0px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0px 0% 0px 0px);
+    opacity: 1;
+  }
+}
+
+@keyframes template_3_img {
+  from {
+    transform: scale(.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes template_3_img2 {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes common_popup-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+
+@keyframes common_popup-close {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes common_popup-content-open {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes common_popup-content-close {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes next_slide {
+  from {
+    transform: translateX(30%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes showroommain-end-animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes next-slide-title {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes electrified-progress-animation {
+  100% {
+    clip-path: inset(0px 0% 0px 0px);
+  }
+}
+
+@keyframes video-popup-open-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes video-popup-close-animation {
+  from {
+    /* transform: scale(1);
+    opacity: 1;
+    border-radius: 0%; */
+  }
+  to {
+    /* transform-origin: 30.15625vw 74.259vh; */
+    transform: scale(0.15);
+    opacity: 0;
+  }
+}
+
+@keyframes video_img-open-animation {
+  100% {
+    width: 91.66vh;
+    top: 4.17vh;
+    bottom: 4.17vh;
+    left: 4.17vh;
+    right: 4.17vh;
+  }
+}
+
+@keyframes language-open-animation {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes language-close-animation {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(150%);
+  }
+}
+
+@keyframes video-popup-close-btn-open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes video-popup-close-btn-close {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes video-tmp-img-animation {
+  from {
+    transform: scale(1) translate(0, 0);
+  }
+  to {
+    transform: translate(110%, -240%) scale(7.7532493163, 7.1979077384);
+  }
+}
+
+@keyframes video-popup-close {
+  from {
+    transform: scale(1) translate(0, 0);
+  }
+  to {
+    transform: translate(-13.75%, 32.4%) scale(0.128977, 0.138929);
+  }
+}

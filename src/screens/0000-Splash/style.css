@@ -1,0 +1,16 @@
+.splash-background {
+    background-color: #002c5f;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-container {
+    flex: 1;
+    width: 26.354vw;
+    height: 8.229vw;
+}

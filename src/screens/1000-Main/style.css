@@ -1,0 +1,127 @@
+.main-background {
+  background-color: '#F6F3F2';
+  background-image: url('../../assets/images/MainBackground.png');
+  background-position: 'cover';
+  background-size: 100vw 100vh;
+}
+
+.gesture-guide {
+  background-color: rgba(11, 11, 11, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gesture-box {
+  margin-top: 41.67vh;
+}
+
+.gesture-img {
+  width: 20.83vw;
+  height: 20.83vw;
+}
+
+.gesture-img-prev {
+  margin-left: 10.47vw;
+  animation: gesture_prev 1.2s infinite;
+}
+
+.gesture-prev {
+  padding-left: 10.47vw;
+  text-align: center;
+}
+
+.gesture-img-next {
+  margin-right: 10.47vw;
+  animation: gesture_next 1.2s infinite;
+}
+
+.gesture-next {
+  padding-right: 10.47vw;
+  text-align: center;
+}
+
+.vehicle-main-img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.main-text-container {
+  position: absolute;
+  top: 7.407vh;
+  left: 6.51vw;
+}
+
+.vehicle-main-image-box {
+  /* 169.44vh 92.13vh */
+  /* 95.31vw  51.82vw */
+  width: 95.31vw;
+  height: 92.13vh;
+  margin: 0 2.34375vw;
+}
+
+.vehicle-main-img {
+  /* 169.44vh 92.13vh */
+  /* 95.31vw  51.82vw */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vehicle-main-img-animation {
+  /* 169.44vh 92.13vh */
+  /* 95.31vw  51.82vw */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: opacity-0-1 1.2s;
+}
+
+.electrified-title-animaion {
+  opacity: 0.8;
+  animation: bottom-to-top 0.6s;
+}
+
+.electrified-sub-animaion {
+  opacity: 0.8;
+  animation: bottom-to-top 0.6s;
+}
+
+.next-slide {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 17.4vw;
+  height: 92.037vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.next-slide-animation {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 17.4vw;
+  height: 92.037vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  animation: next_slide 0.6s;
+}
+
+.next-slide-content {
+  padding-top: 2.22vh;
+}
+
+.slide-title {
+  animation: next-slide-title 2s infinite;
+  animation-direction: reverse;
+}

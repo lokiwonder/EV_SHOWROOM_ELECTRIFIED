@@ -1,0 +1,33 @@
+{
+    "presets": [
+        "@babel/env"
+    ],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": ["./"],
+                "alias": {
+                    // "@": "./src",
+                    "@asset": "./src/assets",
+                    "@img": "./src/assets/images",
+                    "@font": "./src/assets/fonts",
+                    "@lottie": "./src/assets/lotties",
+                    "@components": "./src/components",
+                    "@config": "./src/config",
+                    "@data": "./src/data/data.json",
+                    "@hook": "./src/hooks",
+                    "@i18n": "./src/i18n",
+                    "@nav": "./src/navigations",
+                    "@screen": "./src/screens",
+                    "@popup": "./src/screens/popups",
+                    "@store": "./src/stores",
+                    "@interface": "./src/interfaces",
+                    "@constant": "./src/constants",
+                    "@class": "./src/classes",
+                    "@function": "./src/function"
+                }
+            }
+        ]
+    ]
+}

@@ -1,0 +1,548 @@
+{
+    "setting": {
+        "app_id": "",
+        "app_type": "vehicles",
+        "nation": "IT",
+        "app_version": 0,
+        "electrified_version": 0,
+        "translation_version": 0,
+        "languages": [
+            "en"
+        ],
+        "default_language": "en"
+    },
+    "translations": [
+        {
+            "language": "en",
+            "electrifies": [
+                {
+                    "electrified_item_name": "KONA Electric",
+                    "electrified_subtitle": "On to better. On to electric.",
+                    "version": 1.01,
+                    "main_image": "3e07018f-8a5c-49ba-a37f-9f34e75b7f7d.png",
+                    "rotation_image": "5bd8dd21-e095-414b-815d-f0a8211ca597.png",
+                    "calculation_image": "27b7fc1a-1ec4-4042-8696-a791ee5a35d7.png",
+                    "calculator": 10,
+                    "main": {
+                        "sequence_number": 0,
+                        "type": "template_3",
+                        "image": "4f04268e-0c2d-44b9-a5f0-478caf234bcd.png"
+                    },
+                    "highlights": [
+                        {
+                            "sequence_number": 0,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "A future you don’t have to wait for",
+                            "comment": "It’s here. Now. Sleeker and more sophisticated, the new KONA Electric features an updated design, the very latest smart tech - and up to 484km* range on a single charge.",
+                            "description": "*Range according to WLTP cycle. Driving range may vary slightly depending on road conditions, your driving style and the temperature. It is also dependent on the type of tyres equipped. Technical data not final. 0 to 100km/h acceleration in 7.9 seconds for the 64kWh battery version and 9.9 seconds for 39.2kWh version.",
+                            "image": "b339a8b9-07c0-4c24-ab13-32109b656490.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 1,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Range",
+                            "comment": "Nobody ever said that electric mobility had to be boring: Enjoy sporty electric acceleration and up to 484km* driving range on a single charge.",
+                            "description": "*Range according to WLTP cycle. Driving range may vary slightly depending on road conditions, your driving style and the temperature. It is also dependent on the type of tyres equipped. Technical data not final. 0 to 100km/h acceleration in 7.9 seconds for the 64kWh battery version and 9.9 seconds for 39.2kWh version.",
+                            "image": "3b5055c2-8b3a-4a49-bc47-5b18c6ca39d1.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 2,
+                            "type": "template_3",
+                            "image": "d4f1e4f3-0506-4491-aa37-5783b775c775.png"
+                        },
+                        {
+                            "sequence_number": 3,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Exterior",
+                            "comment": "The new KONA Electric has undergone a comprehensive redesign, with sleeker and more refined lines further enhancing its uniquely confident look - setting it apart from every SUV in the class.",
+                            "description": "",
+                            "image": "e1354bd5-3fca-4239-9bf1-b7058be3ad8e.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 4,
+                            "type": "template_2",
+                            "contents": [
+                                {
+                                    "translation_status": true,
+                                    "image": "adfc7079-9b3b-4593-987e-9b5a1bcf49e6.png",
+                                    "comment": "Body colour claddings",
+                                    "description": ""
+                                },
+                                {
+                                    "translation_status": true,
+                                    "image": "a2d6f713-ff0d-4991-954f-dabbe30b92b6.png",
+                                    "comment": "New LED headlamps",
+                                    "description": ""
+                                },
+                                {
+                                    "translation_status": true,
+                                    "image": "c0acd0c2-daf6-4495-98e2-7ce5f36c324d.png",
+                                    "comment": "New tail lamps",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "sequence_number": 5,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Interior",
+                            "comment": "Rugged, yet refined - perfect for an active lifestyle - the new design updates match the exterior flair every step of the way.",
+                            "description": "",
+                            "image": "5955e2c0-7c5d-4f93-852c-72f9e083135c.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 6,
+                            "type": "template_3",
+                            "image": "64f951ba-d5c4-4d74-8f63-8a0fb31932a6.png"
+                        }
+                    ],
+                    "charging": [
+                        {
+                            "sequence_number": 0,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Charge at home",
+                            "comment": "Plug in your KONA Electric overnight, and wake up to a fully charged battery.",
+                            "description": "",
+                            "image": "585cc1b8-b38f-4649-88d1-e53a413ba56e.png",
+                            "video": "HyundaiEVQCharging.mp4",
+                            "video_image": "b1d14332-45d7-4088-8cd5-cd0d6edb81df.jpeg"
+                        },
+                        {
+                            "sequence_number": 1,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Charge at work",
+                            "comment": "One less stop to worry about after work. A growing number of companies are offering charging stations.",
+                            "description": "",
+                            "image": "4d18ea70-e7b6-4663-a224-ac800b45fd84.png",
+                            "video": "HyundaiEVQCharging.mp4",
+                            "video_image": "b1d14332-45d7-4088-8cd5-cd0d6edb81df.jpeg"
+                        },
+                        {
+                            "sequence_number": 2,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Charge everywhere",
+                            "comment": "Hyundai’s Charging Station Finder shows you real-time charging station information such as location connector types, and availability on the Bluelink® app on your phone and on your cars navigation display.",
+                            "description": "",
+                            "image": "6d1ec439-1002-4897-82d8-cde92fde567b.png",
+                            "video": "HyundaiEVQCharging.mp4",
+                            "video_image": "b1d14332-45d7-4088-8cd5-cd0d6edb81df.jpeg"
+                        }
+                    ],
+                    "benefits": [
+                        {
+                            "sequence_number": 0,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Cost and CO₂ reduction",
+                            "comment": "The KONA Electric is not only a zero emissions vehicle: often the cost of operation is lower compared to combustion counterparts, especially if you charge it at home.*",
+                            "description": "*The relative operational costs of this vehicle compared to one with an internal combustion engine can vary depending on energy prices and which ICE is being compared.",
+                            "image": "00d2f590-a2a6-4865-b8c8-e5cdcc286ea3.png",
+                            "video": "",
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 1,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Fast charging",
+                            "comment": "KONA Electric’s lithium-ion polymer battery* only takes about 47 min to charge from 10% to 80% state of charge (SOC) when using a 100kW direct current (DC) fast-charger station.",
+                            "description": "*0 to 100km/h acceleration in 7.9 seconds for the 64kWh battery version and 9.9 seconds for 39.2kWh version. Range according to WLTP cycle. Driving range may vary slightly depending on road conditions, your driving style and the temperature. it is also dependent on the type of tyres equipped.",
+                            "image": "f6f55c2b-9f10-41d3-b406-31d365d6849c.png",
+                            "video": "",
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 2,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Impressive 484km* driving range",
+                            "comment": "Nobody ever said that electric mobility had to be boring: Enjoy sporty electric acceleration and up to 484km* driving range on a single charge.",
+                            "description": "*0 to 100km/h acceleration in 7.9 seconds for the 64kWh battery version and 9.9 seconds for 39.2kWh version. Range according to WLTP cycle. Driving range may vary slightly depending on road conditions, your driving style and the temperature. it is also dependent on the type of tyres equipped.",
+                            "image": "5c0fc943-1595-4048-83ff-7ff2728a0c88.png",
+                            "video": "",
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 3,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Less maintenance, lower cost",
+                            "comment": "While an internal combustion engine contains hundreds of moving parts, an electric motor only needs around half a dozen, significantly reducing the probability of something breaking. There is no need for oil changes, either.",
+                            "description": "",
+                            "image": "7fd53338-e0fd-4062-9993-91aade080488.png",
+                            "video": "",
+                            "video_image": ""
+                        }
+                    ]
+                },
+                {
+                    "electrified_item_name": "IONIQ 5",
+                    "electrified_subtitle": "Power your world",
+                    "version": 1.01,
+                    "main_image": "c934730d-05ca-4b01-ad50-54730c50bd3f.png",
+                    "rotation_image": "fc06d347-480a-4d37-a0fa-832d99aac82f.png",
+                    "calculation_image": "26e294fa-3ece-47bb-af5e-4f7c4fbdfed3.png",
+                    "calculator": 10,
+                    "main": {
+                        "sequence_number": 0,
+                        "type": "template_3",
+                        "image": "02ce29b5-fe60-4cb5-ab58-d193051e464a.png"
+                    },
+                    "highlights": [
+                        {
+                            "sequence_number": 0,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "The beauty of electric innovation",
+                            "comment": "Breathtaking beautiful and amazingly advanced, the IONIQ 5 is refining the way people look at electic cars.",
+                            "description": "",
+                            "image": "7b7df373-513e-40ce-b6e4-4534f9c8da82.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 1,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Exterior",
+                            "comment": "Distinctive. Iconic. Pure. Concept car design in series",
+                            "description": "",
+                            "image": "54eefb95-fccb-4663-b349-da751fd8f8d6.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 2,
+                            "type": "template_2",
+                            "contents": [
+                                {
+                                    "translation_status": true,
+                                    "image": "c61361c1-009e-4e51-afbb-638a112379ba.png",
+                                    "comment": "From night to bright in 256 pixels",
+                                    "description": ""
+                                },
+                                {
+                                    "translation_status": true,
+                                    "image": "5bfc39c2-a401-40ea-a73a-352d8f2f9783.png",
+                                    "comment": "Bold and bright in the back",
+                                    "description": ""
+                                },
+                                {
+                                    "translation_status": true,
+                                    "image": "919c3575-9285-412c-bb1b-599f5d5fb4f1.png",
+                                    "comment": "Exclusive 20″ alloy wheels",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "sequence_number": 3,
+                            "type": "template_3",
+                            "image": "cd930395-8305-45af-9c5e-30a3d4154db1.png"
+                        },
+                        {
+                            "sequence_number": 4,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Interior",
+                            "comment": "Live, drive, work, relax.\nThe lines between living space\nand moving space are being blurred.",
+                            "description": "",
+                            "image": "851fd07b-198b-45ed-9680-ef79540ca873.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 5,
+                            "type": "template_2",
+                            "contents": [
+                                {
+                                    "translation_status": true,
+                                    "image": "c39ace99-f40b-411e-b78b-9e25eb305681.png",
+                                    "comment": "Sliding centre console",
+                                    "description": ""
+                                },
+                                {
+                                    "translation_status": true,
+                                    "image": "9ae16a3f-f1ea-44f5-bbb5-bd9e1623c557.png",
+                                    "comment": "Vehicle-to-Load",
+                                    "description": ""
+                                },
+                                {
+                                    "translation_status": true,
+                                    "image": "4da89072-da05-492f-b95e-4ba77234f6f6.png",
+                                    "comment": "Wide-screen digital cockpit",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "sequence_number": 6,
+                            "type": "template_3",
+                            "image": "da98bd32-e742-4e90-8f42-772ed56e751e.png"
+                        }
+                    ],
+                    "charging": [
+                        {
+                            "sequence_number": 0,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Charge at home",
+                            "comment": "Plug in your IONIQ Electric overnight,\nand wake up to a fully charged battery.",
+                            "description": "",
+                            "image": "23841202-865c-4639-8db6-627e549e2c54.png",
+                            "video": "HyundaiEVQCharging.mp4",
+                            "video_image": "b1d14332-45d7-4088-8cd5-cd0d6edb81df.jpeg"
+                        },
+                        {
+                            "sequence_number": 1,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Charge at work",
+                            "comment": "One less stop to worry about after work.\nA growing number of companies are offering\ncharging stations.",
+                            "description": "",
+                            "image": "7dc1c57c-0a6b-4022-97c9-fee864c52f11.png",
+                            "video": "HyundaiEVQCharging.mp4",
+                            "video_image": "b1d14332-45d7-4088-8cd5-cd0d6edb81df.jpeg"
+                        },
+                        {
+                            "sequence_number": 2,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Charge everywhere",
+                            "comment": "Hyundai’s Charging Station Finder shows you\nreal-time charging station information\nsuch as location connector types,\nand availability on the Bluelink® app on your phone and on your cars navigation display.",
+                            "description": "",
+                            "image": "da0e5921-bbee-4cd8-9fad-03265babcebc.png",
+                            "video": "HyundaiEVQCharging.mp4",
+                            "video_image": "b1d14332-45d7-4088-8cd5-cd0d6edb81df.jpeg"
+                        }
+                    ],
+                    "benefits": [
+                        {
+                            "sequence_number": 0,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Cost and CO₂ reduction",
+                            "comment": "IONIQ 5 is not only a zero emissions vehicle: often the cost of operation is lower compared to combustion counterparts, especially if you charge it at home.*",
+                            "description": "*The relative operational costs of this vehicle compared to one with an internal combustion engine can vary depending on energy prices and which ICE is being compared.",
+                            "image": "b3b59cdb-133f-47c9-a80e-f9929643ff56.png",
+                            "video": "",
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 1,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Ultra fast battery charging",
+                            "comment": "Charge up to 80% in 18 minutes.\nGain 100km range in 5 minutes.",
+                            "description": "*0 to 100km/h acceleration in 7.9 seconds for the 64kWh battery version and 9.9 seconds for 39.2kWh version. Range according to WLTP cycle. Driving range may vary slightly depending on road conditions, your driving style and the temperature. it is also dependent on the type of tyres equipped.",
+                            "image": "69728ef1-3b52-4018-8d4e-7f2f71ead72c.png",
+                            "video": "",
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 2,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Driving range of up to 481 km",
+                            "comment": "With Hyundai’s cutting-edge smart tech,\nthe launch version of IONIQ 5 with all-wheel drive delivers a range up to 481 km*.",
+                            "description": "*0 to 100km/h acceleration in 7.9 seconds for the 64kWh battery version and 9.9 seconds for 39.2kWh version. Range according to WLTP cycle. Driving range may vary slightly depending on road conditions, your driving style and the temperature. it is also dependent on the type of tyres equipped.",
+                            "image": "6c61f3aa-b212-45d9-9686-305ff050a7e5.png",
+                            "video": "",
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 3,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Less maintenance,\nLower cost",
+                            "comment": "While an internal combustion engine contains hundreds of moving parts,\nan electric motor only needs around\nhalf a dozen, significantly reducing\nthe probability of something breaking.\nThere is no need for oil changes, either. ",
+                            "description": "",
+                            "image": "a47acb41-b290-4511-8d0e-f9ab4742ff5e.png",
+                            "video": "",
+                            "video_image": ""
+                        }
+                    ]
+                },
+                {
+                    "electrified_item_name": "IONIQ Electric",
+                    "electrified_subtitle": "Electric awaits. Next awaits.",
+                    "version": 1.01,
+                    "main_image": "33fcfc38-c809-4b6b-a0dc-3413a2938b10.png",
+                    "rotation_image": "a91c9d02-659d-4af7-b6e9-c3322cb05ba0.png",
+                    "calculation_image": "9b49c960-15ce-491a-b123-b6073bb3f57c.png",
+                    "calculator": 10,
+                    "main": {
+                        "sequence_number": 0,
+                        "type": "template_3",
+                        "image": "39e30b1b-1f25-4f9f-91ee-ff9414414338.png"
+                    },
+                    "highlights": [
+                        {
+                            "sequence_number": 0,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Fast charging, long driving",
+                            "comment": "Never stop for petrol again. The new IONIQ Electric gives you an all-electric driving range of 311km on a single charge.*",
+                            "description": "*Driving range may vary slightly depending on road conditions, your driving style and the temperature. It is also dependent on the type of tyres equipped.",
+                            "image": "4ca1b7ac-0104-468d-8e8f-e2bfa758ecca.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 1,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Exterior",
+                            "comment": "Designed for beauty -  but engineered for efficiency.",
+                            "description": "",
+                            "image": "752e7e11-4289-4529-b922-b04e3dfee418.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 2,
+                            "type": "template_2",
+                            "contents": [
+                                {
+                                    "translation_status": true,
+                                    "image": "c2c7cf02-b897-482f-a2b7-a77da2535e5b.png",
+                                    "comment": "Closed floating grille",
+                                    "description": ""
+                                },
+                                {
+                                    "translation_status": true,
+                                    "image": "a08bf09c-a6f9-467d-9538-3022a88863d6.png",
+                                    "comment": "Full LED headlamps",
+                                    "description": ""
+                                },
+                                {
+                                    "translation_status": true,
+                                    "image": "e1a49d72-ef7a-4476-a78c-1534a9755f94.png",
+                                    "comment": "16″ alloy wheels",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        {
+                            "sequence_number": 3,
+                            "type": "template_3",
+                            "image": "b0d34d2a-ffb3-4511-90b7-9184f759b422.png"
+                        },
+                        {
+                            "sequence_number": 4,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Interior",
+                            "comment": "Spacious and sophisticated interior.",
+                            "description": "",
+                            "image": "0a32bb85-cd15-46b0-8fd4-a9a0fbaf1ff4.png",
+                            "video": null,
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 5,
+                            "type": "template_3",
+                            "image": "903dae7b-1a20-4457-bd0b-d90bacfd14be.png"
+                        }
+                    ],
+                    "charging": [
+                        {
+                            "sequence_number": 0,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Charge at home",
+                            "comment": "Plug in your IONIQ Electric overnight, and wake up to a fully charged battery.",
+                            "description": "",
+                            "image": "aa7bb8e8-ee40-4a2d-936a-3bfc7a2c9ad7.png",
+                            "video": "HyundaiEVQCharging.mp4",
+                            "video_image": "b1d14332-45d7-4088-8cd5-cd0d6edb81df.jpeg"
+                        },
+                        {
+                            "sequence_number": 1,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Charge at work",
+                            "comment": "One less stop to worry about after work. A growing number of companies are offering charging stations.",
+                            "description": "",
+                            "image": "c1736adb-170e-4d83-b5fb-be9ab5571919.png",
+                            "video": "HyundaiEVQCharging.mp4",
+                            "video_image": "b1d14332-45d7-4088-8cd5-cd0d6edb81df.jpeg"
+                        },
+                        {
+                            "sequence_number": 2,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Charge everywhere",
+                            "comment": "Hyundai’s Charging Station Finder shows you real-time charging station information such as location connector types, and availability on the Bluelink® app on your phone and on your cars navigation display.",
+                            "description": "",
+                            "image": "8747bd77-23c1-432a-b56d-454ef4c49aee.png",
+                            "video": "HyundaiEVQCharging.mp4",
+                            "video_image": "b1d14332-45d7-4088-8cd5-cd0d6edb81df.jpeg"
+                        }
+                    ],
+                    "benefits": [
+                        {
+                            "sequence_number": 0,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Cost and CO₂ reduction",
+                            "comment": "The IONIQ Electric is not only a zero emissions vehicle: often the cost of operation is lower compared to combustion counterparts, especially if you charge it at home*.",
+                            "description": "*The relative operational costs of this vehicle compared to one with an internal combustion engine can vary depending on energy prices and which ICE is being compared.",
+                            "image": "cd7940ff-4e2d-42b2-b195-368866f55ba6.png",
+                            "video": "",
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 1,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Fast charging",
+                            "comment": "Thanks to an on-board-charger that has been upgraded to 7.2kW, the battery only takes about 54 minutes to charge to 80% state of charge at a 100kW DC fast charger station.",
+                            "description": "*0 to 100km/h acceleration in 7.9 seconds for the 64kWh battery version and 9.9 seconds for 39.2kWh version. Range according to WLTP cycle. Driving range may vary slightly depending on road conditions, your driving style and the temperature. it is also dependent on the type of tyres equipped.",
+                            "image": "c01aac83-bf11-4dcf-8a40-ef6987ff67c3.png",
+                            "video": "",
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 2,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Driving range of up to 311km",
+                            "comment": "Never stop for petrol again. Producing zero tailpipe emissions while providing a thrilling driving experience, the new IONIQ Electric gives you an all-electric driving range of 311km on a single charge*.",
+                            "description": "*Driving range may vary slightly depending on road conditions, your driving style and the temperature. It is also dependent on the type of tyres equipped.",
+                            "image": "8a27648f-2fad-4cf4-ac36-43abecaa5928.png",
+                            "video": "",
+                            "video_image": ""
+                        },
+                        {
+                            "sequence_number": 3,
+                            "type": "template_1",
+                            "translation_status": true,
+                            "title": "Less maintenance, lower cost",
+                            "comment": "While an internal combustion engine contains hundreds of moving parts, an electric motor only needs around half a dozen, significantly reducing the probability of something breaking. There is no need for oil changes, either.",
+                            "description": "",
+                            "image": "0d9b411e-1f55-4013-8d19-d85025dc1b1c.png",
+                            "video": "",
+                            "video_image": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
