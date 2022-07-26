@@ -20,7 +20,7 @@ function MainItem(props: Props) {
   const { electrified_name, delay, onSelectHandler } = props;
   const { gesture, change } = useGestureStore();
   const [animation, setAnimation] = useState<string>("hidden-fx");
-  const [url, setUrl] = useState<string>();
+  const [url, setUrl] = useState<string>('');
   const i = R.findIndex(R.propEq("electrified_item_name", electrified_name))(
     electrifies
   );

@@ -52,9 +52,13 @@ export const COUNTRIES: CountrySelector[] = [
 
 export const ARRAY_BUFFER = 'arraybuffer';
 
-export const ELECTRIFIED_INITIALIZE_URL = 'http://localhost:4000/apis/electrified/electrifiedInitialize';
-export const ELECTRIFIED_VERSION_CHECK_URL = 'http://localhost:4000/apis/electrified/electrifiedCheck';
-export const TRANSLATION_VERSION_CHECK_URL = 'http://localhost:4000/apis/electrified/translationCheck'
+// export const ELECTRIFIED_INITIALIZE_URL = 'http://localhost:4000/apis/electrified/electrifiedInitialize';
+// export const ELECTRIFIED_VERSION_CHECK_URL = 'http://localhost:4000/apis/electrified/electrifiedCheck';
+// export const TRANSLATION_VERSION_CHECK_URL = 'http://localhost:4000/apis/electrified/translationCheck'
+
+export const ELECTRIFIED_INITIALIZE_URL = 'http://51.116.98.90:4000/apis/electrified/electrifiedInitialize';
+export const ELECTRIFIED_VERSION_CHECK_URL = 'http://51.116.98.90:4000/apis/electrified/electrifiedCheck';
+export const TRANSLATION_VERSION_CHECK_URL = 'http://51.116.98.90:4000/apis/electrified/translationCheck'
 
 export const SPLASH_LOTTIE_OPTIONS = {
   animationData: SplashLottie,

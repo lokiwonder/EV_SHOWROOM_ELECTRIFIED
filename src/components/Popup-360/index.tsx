@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import * as R from 'ramda';
-
-import './style.css';
-
 import { PopupCloseIcon, PopupLeftArrowIcon, PopupRightArrowIcon } from 'src/assets/images';
 import { useElectrifiedSelectStore, usePopupStore, useElectrifiedStore, useGestureStore, useElectrifiedPageStore } from 'src/stores';
 import { imageURL } from 'src/function';
+
+import * as R from 'ramda';
+
+import './style.css';
 
 function Popup_360() {
   const { electrifies } = useElectrifiedStore();
@@ -15,10 +15,10 @@ function Popup_360() {
   const { checkGesture } = useGestureStore();
   const { closePopup } = usePopupStore();
 
-  const [bg_animation, setBgAnimation] = useState<string>('hidden');
-  const [content_animation, setContentAnimation] = useState<string>('hidden');
-  const [image_style, setImageStyle] = useState<string>('hidden');
-  const [url, setUrl] = useState<string>();
+  const [ bg_animation, setBgAnimation ] = useState<string>('hidden');
+  const [ content_animation, setContentAnimation ] = useState<string>('hidden');
+  const [ image_style, setImageStyle ] = useState<string>('hidden');
+  const [ url, setUrl ] = useState<string>();
 
   const i = R.findIndex(R.propEq('electrified_item_name', selected_electrified))(electrifies);
   const electrified = electrifies[i];
