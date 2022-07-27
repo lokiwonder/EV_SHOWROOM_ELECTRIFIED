@@ -17,6 +17,7 @@ import {
   usePopupStore,
   usetemplate_3_Store,
   useSettingStore,
+  useAssetsStore,
 } from "src/stores";
 import {
   RightArrowIcon,
@@ -60,6 +61,7 @@ function Main() {
     useGestureStore();
   const { popup } = usePopupStore();
   const { setFirst, notFirst } = usetemplate_3_Store();
+  const { asset_list } = useAssetsStore();
 
   const [next, setNext] = useState<boolean>(true);
 
@@ -214,45 +216,82 @@ function Main() {
     const [img_animation, setImgAnimation] = useState<string>("hidden");
     const [url, setUrl] = useState<string>("");
 
-    const setURI = async () => {
-      const binary = await imageURL(
-        selected_electrified,
-        electrified_page.page.image
-      );
-      const blob = new Blob([binary], { type: "image/png" });
-      setUrl(URL.createObjectURL(blob));
+    const setURI = () => {
+      for (const item of asset_list) {
+        if(item.electrified === selected_electrified && item.classification === 'main' && item.sequence === 0) {
+          console.log(item);
+          setUrl(item.image_url[0]);
+          break;
+        }
+      }
+        
+      // const binary = await imageURL(
+      //   selected_electrified,
+      //   electrified_page.page.image
+      // );
+      // const blob = new Blob([binary], { type: "image/png" });
+      // setUrl(URL.createObjectURL(blob));
     };
 
     useEffect(() => {
-      setURI().then((r) => {
-        if (gesture && change) {
-          setImgAnimation("vehicle-main-img-animation");
-          if (selected_electrified == "KONA Electric") {
-            setTimeout(() => {
-              setTitleAnimation("electrified-title-animaion white");
-            }, 900);
-            setTimeout(() => {
-              setSubAnimation("b2 electrified-sub-animaion white");
-            }, 1200);
-          } else {
-            setTimeout(() => {
-              setTitleAnimation("electrified-title-animaion");
-            }, 900);
-            setTimeout(() => {
-              setSubAnimation("b2 electrified-sub-animaion");
-            }, 1200);
-          }
+      console.log('test');
+      // setURI().then((r) => {
+      //   if (gesture && change) {
+      //     setImgAnimation("vehicle-main-img-animation");
+      //     if (selected_electrified === "KONA Electric") {
+      //       setTimeout(() => {
+      //         setTitleAnimation("electrified-title-animaion white");
+      //       }, 900);
+      //       setTimeout(() => {
+      //         setSubAnimation("b2 electrified-sub-animaion white");
+      //       }, 1200);
+      //     } else {
+      //       setTimeout(() => {
+      //         setTitleAnimation("electrified-title-animaion");
+      //       }, 900);
+      //       setTimeout(() => {
+      //         setSubAnimation("b2 electrified-sub-animaion");
+      //       }, 1200);
+      //     }
+      //   } else {
+      //     setImgAnimation("vehicle-main-img");
+      //     if (selected_electrified === "KONA Electric") {
+      //       setTitleAnimation("white");
+      //       setSubAnimation("b2 white");
+      //     } else {
+      //       setTitleAnimation("");
+      //       setSubAnimation("b2");
+      //     }
+      //   }
+      // });
+      setURI();
+      if (gesture && change) {
+        setImgAnimation("vehicle-main-img-animation");
+        if (selected_electrified === "KONA Electric") {
+          setTimeout(() => {
+            setTitleAnimation("electrified-title-animaion white");
+          }, 900);
+          setTimeout(() => {
+            setSubAnimation("b2 electrified-sub-animaion white");
+          }, 1200);
         } else {
-          setImgAnimation("vehicle-main-img");
-          if (selected_electrified == "KONA Electric") {
-            setTitleAnimation("white");
-            setSubAnimation("b2 white");
-          } else {
-            setTitleAnimation("");
-            setSubAnimation("b2");
-          }
+          setTimeout(() => {
+            setTitleAnimation("electrified-title-animaion");
+          }, 900);
+          setTimeout(() => {
+            setSubAnimation("b2 electrified-sub-animaion");
+          }, 1200);
         }
-      });
+      } else {
+        setImgAnimation("vehicle-main-img");
+        if (selected_electrified === "KONA Electric") {
+          setTitleAnimation("white");
+          setSubAnimation("b2 white");
+        } else {
+          setTitleAnimation("");
+          setSubAnimation("b2");
+        }
+      }
     }, []);
 
     return (

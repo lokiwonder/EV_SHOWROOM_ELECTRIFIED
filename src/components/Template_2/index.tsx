@@ -18,26 +18,9 @@ function Template_2() {
   const [commnet_animation, setCommentAnimation] =
     useState<string>("display-none");
 
-  useEffect(() => {
-    if (gesture && change) {
-      setImageAnimation("template-2-img template-2-img-animation");
-      setTimeout(() => {
-        setCommentAnimation(
-          "b2 template-2-comment template-2-comment-animation"
-        );
-      }, 300);
-    } else {
-      setImageAnimation("template-2-img");
-      setCommentAnimation("b2 template-2-comment");
-    }
-  }, []);
-
+  // description: content component //
   const Template_2_item = (content: any) => {
     const [url, setURL] = useState<string>('');
-
-    console.log(content.content);
-    console.log(`image: ${content.content.image}`);
-    console.log(`comment: ${content.content.comment}`);
 
     const setURI = async () => {
       const binary = await imageURL(selected_electrified, content.content.image);
@@ -46,8 +29,21 @@ function Template_2() {
     };
 
     useEffect(() => {
-      setURI();
-    });
+      // description: 이미지 로드 완료 후 화면 출력 //
+      setURI().then(() => {
+        if (gesture && change) {
+          setImageAnimation("template-2-img template-2-img-animation");
+          setTimeout(() => {
+            setCommentAnimation(
+              "b2 template-2-comment template-2-comment-animation"
+            );
+          }, 300);
+        } else {
+          setImageAnimation("template-2-img");
+          setCommentAnimation("b2 template-2-comment");
+        }
+      });
+    }, []);
 
     return (
       <div className="template-2-item">

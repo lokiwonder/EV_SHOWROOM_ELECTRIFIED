@@ -89,3 +89,13 @@ export interface ElectrifiedPageStoreArgument {
   electrifies?: Electrified[];
 }
 //        interface (front global)        //
+
+//        interface (common)        //
+export interface AssetValue {
+  electrified: string;
+  classification: string;
+  sequence: number;
+  image_url: Array<string>;
+  video_url: string;
+}
+//        interface (common)        //

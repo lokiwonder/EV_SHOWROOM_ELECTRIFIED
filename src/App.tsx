@@ -15,9 +15,6 @@ function App() {
   const { load_status } = useLoadStore();
   //  variable
 
-  console.log(setting);
-  // console.log(os.homedir);
-
   return (
     <Router>
       { 
@@ -28,7 +25,7 @@ function App() {
         setting === undefined ? 
         (<SelectCountryView />) : 
         // description: electrified view, translation update check //
-        update_status < 3 ? 
+        update_status < 4 ? 
         (<UpdateCheckView />) :
         // description: 모든 업데이트가 완료되었을 때 //
         (<VehicleMainView />) 

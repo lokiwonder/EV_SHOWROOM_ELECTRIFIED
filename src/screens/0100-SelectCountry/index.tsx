@@ -40,9 +40,15 @@ function SelectCountry() {
     setInputText('b3');
   };
 
+  const setSettings = async () => {
+    const setting = (await DATA()).setting;
+    setSetting(setting);
+  }
+
   const onContinueHandler = () => {
     electrifiedInitialize(country.code).then(async () => {
-      setSetting((await DATA()).setting);
+      console.log('Finish');
+      setSettings();
     });
   };
 
@@ -64,6 +70,47 @@ function SelectCountry() {
       </div>
     );
   };
+
+  const SelectCountryView = () => {
+    return (
+      <div className="country-background" onClick={onBackgroundClickHandler}>
+      <div className="country-container">
+        <>
+          {!input_status && (
+            <div className="country-select-box">
+              <img className="counter-select-logo-img" src={SelectLanguageLogo} />
+              <span className="showroom-logo h2 white">Plaese select your country</span>
+              <div className="country-selector" onClick={onInputHandler}>
+                {!country.name ? (
+                  <>
+                    <span className={input_text}>Select country</span>
+                    <img className="selectort-arrow" src={BottomArrowIcon} />
+                  </>
+                ) : (
+                  <>
+                    <div className="selected-country">
+                      <span className="b3 conuntry-en-name dark-gray">{country.en_name}</span>
+                    </div>
+                    <img className="selectort-arrow" src={BottomArrowIcon} />
+                  </>
+                )}
+              </div>
+            </div>
+          )}
+          {input_status && <SelectBox />}
+          <div className="select-country-nav">
+            <img className="select-nav-logo" src={HyundaiLogo2} />
+            {country.name && (
+              <button onClick={onContinueHandler} className="confirm-button white">
+                Continue
+              </button>
+            )}
+          </div>
+        </>
+      </div>
+    </div>
+    )
+  }
 
   return (
     <div className="country-background" onClick={onBackgroundClickHandler}>
