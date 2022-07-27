@@ -2,27 +2,23 @@ import { useEffect, useState, ChangeEvent } from 'react';
 
 import * as R from 'ramda';
 
+import { PopupCloseIcon } from 'src/assets/images';
+import { useElectrifiedSelectStore, useElectrifiedStore, usePopupStore, useGestureStore, useElectrifiedPageStore, useAssetsStore } from 'src/stores';
+import { CALCULATION } from 'src/constants';
+
 import './style.css';
 
-import { PopupCloseIcon } from 'src/assets/images';
-import { useElectrifiedSelectStore, useElectrifiedStore, usePopupStore, useGestureStore, useElectrifiedPageStore } from 'src/stores';
-import { imageURL } from 'src/function';
-
 function Popup_Calculator() {
-  const { electrifies } = useElectrifiedStore();
   const { selected_electrified } = useElectrifiedSelectStore();
   const { electrified_page } = useElectrifiedPageStore();
   const { checkGesture } = useGestureStore();
   const { closePopup } = usePopupStore();
+  const { asset_list } = useAssetsStore();
 
   const [bg_animation, setBgAnimation] = useState<string>('hidden');
   const [content_animation, setContentAnimation] = useState<string>('hidden');
-  const [image_style, setImageStyle] = useState<string>('hidden');
   const [range_value, setRangeVale] = useState<number>(0);
   const [url, setUrl] = useState<string>('');
-
-  const i = R.findIndex(R.propEq('electrified_item_name', selected_electrified))(electrifies);
-  const electrified = electrifies[i];
 
   const onCloseHandler = () => {
     setContentAnimation('popup-calculator-container-close bg-light-sand');
@@ -32,7 +28,6 @@ function Popup_Calculator() {
     setTimeout(() => {
       setContentAnimation('hidden');
       setBgAnimation('hidden');
-      setImageStyle('hidden');
       checkGesture(electrified_page.page_class);
       closePopup();
     }, 480);
@@ -42,10 +37,12 @@ function Popup_Calculator() {
     setRangeVale(Number(e.currentTarget.value));
   }
 
-  const setURI = async () => {
-    const binary = await imageURL(selected_electrified, electrified.calculation_image);
-    const blob = new Blob([binary], { type: 'image/png' });
-    setUrl(URL.createObjectURL(blob));
+  const setURI = () => {
+    for (const item of asset_list) 
+      if(item.electrified === selected_electrified && item.classification === CALCULATION) {
+        setUrl(item.image_url[0]);
+        break;
+      }
   }
 
   useEffect(() => {
@@ -53,7 +50,6 @@ function Popup_Calculator() {
     setBgAnimation('popup-calculator-bg-open');
     setTimeout(() => {
       setContentAnimation('popup-calculator-container-open bg-light-sand');
-      setImageStyle('popup-calculator-contents-img');
     }, 200);
   }, [])
 
@@ -63,7 +59,7 @@ function Popup_Calculator() {
       <div className={content_animation}>
         <div>
           <button className="popup-calculator-close-btn" onClick={onCloseHandler}>
-            <img className="popup-calculator-close-img" src={PopupCloseIcon}></img>
+            <img className="popup-calculator-close-img" src={PopupCloseIcon} />
           </button>
         </div>
         <div className="popup-calculator-contents-container">

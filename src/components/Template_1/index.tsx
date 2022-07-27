@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { useElectrifiedSelectStore, useElectrifiedPageStore, usePopupStore, useGestureStore } from 'src/stores';
+import { useElectrifiedSelectStore, useElectrifiedPageStore, usePopupStore, useGestureStore, useAssetsStore } from 'src/stores';
 import { Popup_Video } from 'src/components';
 import { PlayIcon } from 'src/assets/images';
-import { imageURL } from 'src/function';
 
 import './style.css';
 
@@ -14,6 +13,7 @@ function Template_1() {
   const { electrified_page } = useElectrifiedPageStore();
   const { gesture, change, noChange, checkGesture } = useGestureStore();
   const { popup, openPopup } = usePopupStore();
+  const { asset_list } = useAssetsStore();
 
   // description: 화면 전환 애니메이션 처리를 위한 state //
   const [background_animation, setBackgroundAnimation] = useState<string>('hidden');
@@ -69,26 +69,21 @@ function Template_1() {
     }
   };
 
-
-  const setURI = async () => {
-    const binary = await imageURL(selected_electrified, electrified_page.page.image);
-    const blob = new Blob([binary], { type: 'image/png' });
-    setUrl(URL.createObjectURL(blob));
-  }
-
-  const setThumbURI = async () => {
-    console.log(`video image: ${electrified_page.page.video_image}`);
-    const binary = await imageURL(selected_electrified, electrified_page.page.video_image);
-    const blob = new Blob([binary], { type: 'image/jpeg' });
-    setThumbUrl(URL.createObjectURL(blob));
+  const setURI = () => {
+    for (const item of asset_list) 
+      if(item.electrified === selected_electrified && item.classification === electrified_page.page_class && item.sequence === electrified_page.page_present) {
+        setUrl(item.image_url[0]);
+        setThumbUrl(item.image_url[1]);
+        break;
+      }
   }
   //        function        //
 
   //        hook        //
   // description: 화면 전환 애니메이션 처리를 위한 useEffect hook //
   useEffect(() => {
-    setThumbURI();
-    setURI().then(r => setAnimation());
+    setURI();
+    setAnimation();
   }, []);
   //        hook        //
 

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { PopupCloseIcon, ChargingThumb } from 'src/assets/images';
-import { usePopupStore, useGestureStore, useElectrifiedPageStore, useElectrifiedSelectStore } from 'src/stores';
-import { imageURL } from 'src/function';
+import { usePopupStore, useGestureStore, useElectrifiedPageStore, useElectrifiedSelectStore, useAssetsStore } from 'src/stores';
+import { CHARGING } from 'src/constants';
 
 import './style.css';
 
@@ -16,6 +16,8 @@ function Popup_Video(props: Props) {
   const { electrified_page } = useElectrifiedPageStore();
   const { checkGesture } = useGestureStore();
   const { closePopup } = usePopupStore();
+  const { asset_list } = useAssetsStore();
+
   const [background_animation, setBackgroundAnimation] = useState<string>('popup-video-background');
   const [media_animation, setMediaAnimation] = useState<string>('hidden');
   const [close_btn_animation, setCloseBtnAnimation] = useState<string>('popup-close-btn hidden');
@@ -23,11 +25,12 @@ function Popup_Video(props: Props) {
 
   const ref = useRef<HTMLVideoElement>(null);
 
-  const setURI = async () => {
-    const binary = await imageURL(selected_electrified, electrified_page.page.video);
-    const blob = new Blob([binary], { type: 'video/mp4' });
-    console.log(`video url: ${URL.createObjectURL(blob)}`);
-    setUrl(URL.createObjectURL(blob));
+  const setURI = () => {
+    for (const item of asset_list) 
+      if(item.electrified === selected_electrified && item.classification === CHARGING && item.sequence === electrified_page.page_present) {
+        setUrl(item.video_url);
+        break;
+      }
   }
 
   const onCloseHandler = () => {
@@ -57,7 +60,7 @@ function Popup_Video(props: Props) {
       <div className="popup-container-open-animation">
         <div>
           <button className={close_btn_animation} onClick={onCloseHandler}>
-            <img className="popup-close-img" src={PopupCloseIcon}></img>
+            <img className="popup-close-img" src={PopupCloseIcon} />
           </button>
         </div>
         <div className="popup-tmp-container">

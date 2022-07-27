@@ -27,6 +27,7 @@ import {
 import {
   BENEFITS,
   CHARGING,
+  ELECTRIFIED_MAIN,
   HIGHLIGHTS,
   TEMPLATE_1,
   TEMPLATE_2,
@@ -39,7 +40,6 @@ import "./style.css";
 import * as R from "ramda";
 
 function Main() {
-  //                variable                //
   //                variable                //
   const { electrifies } = useElectrifiedStore();
   const { setting } = useSettingStore();
@@ -64,6 +64,7 @@ function Main() {
   const { asset_list } = useAssetsStore();
 
   const [next, setNext] = useState<boolean>(true);
+  const [first_p, setFirstP] = useState<boolean>(false);
 
   const electrified_index = getSelectedVehicleIndex(
     selected_electrified,
@@ -79,9 +80,7 @@ function Main() {
 
   let mouseX = 0;
   //                variable                //
-  //                variable                //
 
-  //                function                //
   //                function                //
   // description: 클릭시 화면 제스쳐
   // const onActionHandler = () => checkGesture(electrified_page.page_class);
@@ -165,9 +164,7 @@ function Main() {
     }
   };
   //                function                //
-  //                function                //
 
-  //                component                //
   //                component                //
   // description:
   const ShowroomMainComponent = () => {
@@ -216,55 +213,13 @@ function Main() {
     const [img_animation, setImgAnimation] = useState<string>("hidden");
     const [url, setUrl] = useState<string>("");
 
-    const setURI = () => {
-      for (const item of asset_list) {
-        if(item.electrified === selected_electrified && item.classification === 'main' && item.sequence === 0) {
-          console.log(item);
+    useEffect(() => {
+      setFirstP(true);
+      for (const item of asset_list) 
+        if(item.electrified === selected_electrified && item.classification === ELECTRIFIED_MAIN) {
           setUrl(item.image_url[0]);
           break;
         }
-      }
-        
-      // const binary = await imageURL(
-      //   selected_electrified,
-      //   electrified_page.page.image
-      // );
-      // const blob = new Blob([binary], { type: "image/png" });
-      // setUrl(URL.createObjectURL(blob));
-    };
-
-    useEffect(() => {
-      console.log('test');
-      // setURI().then((r) => {
-      //   if (gesture && change) {
-      //     setImgAnimation("vehicle-main-img-animation");
-      //     if (selected_electrified === "KONA Electric") {
-      //       setTimeout(() => {
-      //         setTitleAnimation("electrified-title-animaion white");
-      //       }, 900);
-      //       setTimeout(() => {
-      //         setSubAnimation("b2 electrified-sub-animaion white");
-      //       }, 1200);
-      //     } else {
-      //       setTimeout(() => {
-      //         setTitleAnimation("electrified-title-animaion");
-      //       }, 900);
-      //       setTimeout(() => {
-      //         setSubAnimation("b2 electrified-sub-animaion");
-      //       }, 1200);
-      //     }
-      //   } else {
-      //     setImgAnimation("vehicle-main-img");
-      //     if (selected_electrified === "KONA Electric") {
-      //       setTitleAnimation("white");
-      //       setSubAnimation("b2 white");
-      //     } else {
-      //       setTitleAnimation("");
-      //       setSubAnimation("b2");
-      //     }
-      //   }
-      // });
-      setURI();
       if (gesture && change) {
         setImgAnimation("vehicle-main-img-animation");
         if (selected_electrified === "KONA Electric") {
@@ -309,10 +264,11 @@ function Main() {
 
   // description:
   const ElectrifiedContentsComponent = () => {
+
     return (
       <div onMouseDown={touchStart} onMouseUp={touchEnd}>
         {!next && <NextSlideComponent />}
-        {!gesture && <GesturePopupComponent />}
+        {(!gesture || first_p) && <GesturePopupComponent />}
         {electrified_page.page.type === TEMPLATE_1 && <Template_1 />}
         {electrified_page.page.type === TEMPLATE_2 && <Template_2 />}
         {electrified_page.page.type === TEMPLATE_3 && <Template_3 />}
@@ -384,10 +340,14 @@ function Main() {
 
   // description:
   const GesturePopupComponent = () => {
+    const click = () => {
+      checkGesture(electrified_page.page_class);
+      setFirstP(false);
+    }
     return (
       <div
         className="gesture-guide"
-        onClick={() => checkGesture(electrified_page.page_class)}
+        onClick={() => click()}
       >
         <span className="gesture-box">
           <img
@@ -403,7 +363,6 @@ function Main() {
       </div>
     );
   };
-  //                component                //
   //                component                //
 
   useEffect(() => {

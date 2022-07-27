@@ -71,7 +71,7 @@ const useStore = create<VehiclePageState>((set) => ({
     const page = electrifies[electrified_index].highlights[0];
     set((state) => ({
       electrified_page: {
-        page_class: 'highlights',
+        page_class: HIGHLIGHTS,
         page_length: list.length,
         page_present: 0,
         page,
@@ -84,7 +84,7 @@ const useStore = create<VehiclePageState>((set) => ({
     const page = electrifies[electrified_index].charging[0];
     set((state) => ({
       electrified_page: {
-        page_class: 'charging',
+        page_class: CHARGING,
         page_length: list.length,
         page_present: 0,
         page,
@@ -97,7 +97,7 @@ const useStore = create<VehiclePageState>((set) => ({
     const page = electrifies[electrified_index].benefits[0];
     set((state) => ({
       electrified_page: {
-        page_class: 'benefits',
+        page_class: BENEFITS,
         page_length: list.length,
         page_present: 0,
         page,

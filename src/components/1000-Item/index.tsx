@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import * as R from "ramda";
 
-import { useElectrifiedStore, useGestureStore } from "src/stores";
+import { useAssetsStore, useElectrifiedStore, useGestureStore } from "src/stores";
 import { MainButtonIcon } from "src/assets/images";
 import { imageURL } from "src/function";
 
 import "./style.css";
+import { SELECTOR } from "src/constants";
 
 //
 interface Props {
@@ -19,6 +20,7 @@ function MainItem(props: Props) {
   const { electrifies } = useElectrifiedStore();
   const { electrified_name, delay, onSelectHandler } = props;
   const { gesture, change } = useGestureStore();
+  const { asset_list } = useAssetsStore();
   const [animation, setAnimation] = useState<string>("hidden-fx");
   const [url, setUrl] = useState<string>('');
   const i = R.findIndex(R.propEq("electrified_item_name", electrified_name))(
@@ -29,21 +31,19 @@ function MainItem(props: Props) {
 
   //               hook               //
   useEffect(() => {
-    // description: 에니메이션 지연
+    // description: 에니메이션 지연 //
     if (gesture && change)
       setTimeout(() => {
         setAnimation("item-animation");
       }, 400 * delay);
     else setAnimation("item");
 
-    // description: 
-    const setURI = async () => {
-      const binary = await imageURL(electrified_name, electrified.main_image);
-      const blob = new Blob([binary], { type: 'image/png' });
-      setUrl(URL.createObjectURL(blob));
-    }
-    
-    setURI();
+    // description: 미리 로드된 resource에서 이미지 불러오기 //
+    for(const asset of asset_list)
+      if (asset.electrified === electrified_name && asset.classification === SELECTOR) {
+        setUrl(asset.image_url[0]);
+        break;
+      }
   }, []);
   //               hook               //
   return (

@@ -1,27 +1,22 @@
 import { useEffect, useState } from 'react';
 
 import { PopupCloseIcon, PopupLeftArrowIcon, PopupRightArrowIcon } from 'src/assets/images';
-import { useElectrifiedSelectStore, usePopupStore, useElectrifiedStore, useGestureStore, useElectrifiedPageStore } from 'src/stores';
-import { imageURL } from 'src/function';
-
-import * as R from 'ramda';
+import { useElectrifiedSelectStore, usePopupStore, useGestureStore, useElectrifiedPageStore, useAssetsStore } from 'src/stores';
+import { ROTATION } from 'src/constants';
 
 import './style.css';
 
 function Popup_360() {
-  const { electrifies } = useElectrifiedStore();
   const { selected_electrified } = useElectrifiedSelectStore();
   const { electrified_page } = useElectrifiedPageStore();
   const { checkGesture } = useGestureStore();
   const { closePopup } = usePopupStore();
+  const { asset_list } = useAssetsStore();
 
   const [ bg_animation, setBgAnimation ] = useState<string>('hidden');
   const [ content_animation, setContentAnimation ] = useState<string>('hidden');
   const [ image_style, setImageStyle ] = useState<string>('hidden');
   const [ url, setUrl ] = useState<string>();
-
-  const i = R.findIndex(R.propEq('electrified_item_name', selected_electrified))(electrifies);
-  const electrified = electrifies[i];
 
   const onCloseHandler = () => {
     setContentAnimation('popup-360-container-close');
@@ -37,10 +32,12 @@ function Popup_360() {
     }, 480);
   } 
   
-  const setURI = async () => {
-    const binary = await imageURL(selected_electrified, electrified.rotation_image);
-    const blob = new Blob([binary], { type: 'image/png' });
-    setUrl(URL.createObjectURL(blob));
+  const setURI = () => {
+    for (const item of asset_list) 
+      if(item.electrified === selected_electrified && item.classification === ROTATION) {
+        setUrl(item.image_url[0]);
+        break;
+      }
   }
   
   useEffect(() => {

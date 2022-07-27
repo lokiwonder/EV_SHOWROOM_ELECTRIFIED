@@ -1,3 +1,5 @@
+import { IAssetValue } from "@interface";
+
 export class CountrySelector {
     image?: string;
     name?: string;
@@ -10,4 +12,20 @@ export class CountrySelector {
       this.code = code;
     }
   }
+
+// description: asset value object class //
+export class AssetValue implements IAssetValue {
+  electrified: string;
+  classification: string;
+  sequence: number;
+  image_url: Array<string>;
+  video_url: string;
   
+  constructor(electrified: string, classification: string, sequence: number, image_url: Array<string>, video_url: string) {
+    this.electrified = electrified;
+    this.classification = classification;
+    this.sequence = sequence;
+    this.image_url = image_url;
+    this.video_url = video_url;
+  }
+}

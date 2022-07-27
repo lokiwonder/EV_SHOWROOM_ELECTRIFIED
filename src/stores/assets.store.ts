@@ -1,11 +1,11 @@
-import { AssetValue } from '@interface';
+import { IAssetValue } from '@interface';
 import create from 'zustand';
 
 //        interface        //
 interface AssetsState {
-  asset_list: Array<AssetValue>;
+  asset_list: Array<IAssetValue>;
 
-  setAssetList: (asset_list: Array<AssetValue>) => void;
+  setAssetList: (asset_list: Array<IAssetValue>) => void;
 }
 //        interface        //
 

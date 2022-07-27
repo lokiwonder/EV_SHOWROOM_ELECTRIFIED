@@ -91,7 +91,7 @@ export interface ElectrifiedPageStoreArgument {
 //        interface (front global)        //
 
 //        interface (common)        //
-export interface AssetValue {
+export interface IAssetValue {
   electrified: string;
   classification: string;
   sequence: number;

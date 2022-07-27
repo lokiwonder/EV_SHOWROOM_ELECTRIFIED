@@ -15,8 +15,6 @@ function SelectCountry() {
 
   const [country, setCountry] = useState<CountrySelector>(new CountrySelector());
 
-  // console.log(new URL(`file://${await path.dataDir()}${selected_electrified}/${image}`, import.meta.url).href);
-
   const onBackgroundClickHandler = () => {
     if (input_status) {
       setInputStatus(false);
@@ -47,7 +45,6 @@ function SelectCountry() {
 
   const onContinueHandler = () => {
     electrifiedInitialize(country.code).then(async () => {
-      console.log('Finish');
       setSettings();
     });
   };
