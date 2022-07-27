@@ -250,7 +250,7 @@ const getAssetValue1 = async (
 
   let video_url = '';
   // description: video 값이 존재할 경우 video url 구하기 //
-  // if (item.video && !video_url) video_url = await getResourceURL(item_name, item.video);
+  if (item.video && !video_url) video_url = await getResourceURL(item_name, item.video);
 
   return {
     electrified: item_name,
