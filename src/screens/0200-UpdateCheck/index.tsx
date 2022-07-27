@@ -63,6 +63,7 @@ function UpdateCheck() {
     if (update_status === 3) {
       const electrifies = (await DATA()).translations[0].electrifies;
       loadResource(electrifies).then((list) => {
+        console.log(list);
         setAssetList(list);
         setUpdate3Check(true);
         setTimeout(() => setUpdateStatus(update_status + 1), 1500);

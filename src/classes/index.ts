@@ -29,3 +29,7 @@ export class AssetValue implements IAssetValue {
     this.video_url = video_url;
   }
 }
+
+export class VideoURL {
+  static video_url: string;
+}
