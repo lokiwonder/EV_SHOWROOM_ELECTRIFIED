@@ -1,22 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { PopupCloseIcon, ChargingThumb } from 'src/assets/images';
-import { usePopupStore, useGestureStore, useElectrifiedPageStore, useElectrifiedSelectStore, useAssetsStore } from 'src/stores';
-import { CHARGING } from 'src/constants';
+import { usePopupStore, useGestureStore, useElectrifiedPageStore, useVideoStore } from 'src/stores';
 
 import './style.css';
 
-interface Props {
-  video: string;
-}
-
-function Popup_Video(props: Props) {
-  //
-  const { selected_electrified } = useElectrifiedSelectStore();
+function Popup_Video() {
   const { electrified_page } = useElectrifiedPageStore();
   const { checkGesture } = useGestureStore();
   const { closePopup } = usePopupStore();
-  const { asset_list } = useAssetsStore();
+  // const { asset_list } = useAssetsStore();
+  const { videos } = useVideoStore();
 
   const [background_animation, setBackgroundAnimation] = useState<string>('popup-video-background');
   const [media_animation, setMediaAnimation] = useState<string>('hidden');
@@ -26,11 +20,17 @@ function Popup_Video(props: Props) {
   const ref = useRef<HTMLVideoElement>(null);
 
   const setURI = () => {
-    for (const item of asset_list) 
-      if(item.electrified === selected_electrified && item.classification === CHARGING && item.sequence === electrified_page.page_present) {
+    console.log(videos);
+    for (const item of videos)  {
+      console.log(item);
+      console.log(electrified_page.page);
+      if(item.video === electrified_page.page.video) {
+        console.log(item.video_url);
         setUrl(item.video_url);
         break;
       }
+    }
+      
   }
 
   const onCloseHandler = () => {
@@ -64,7 +64,7 @@ function Popup_Video(props: Props) {
           </button>
         </div>
         <div className="popup-tmp-container">
-          <video ref={ref} className={media_animation} poster={ChargingThumb} controls src={url}></video>
+          <video ref={ref} className={media_animation} poster={ChargingThumb} autoPlay controls src={url}></video>
         </div>
       </div>
     </div>

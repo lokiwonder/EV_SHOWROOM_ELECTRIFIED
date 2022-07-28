@@ -48,7 +48,7 @@ function Template_1() {
       setImgAnimation('img-container');
       setCommentAnimation('b2 comment');
       setDescriptionAnimation('b4 description');
-      setVideoImgAnimation('vedio_img_container');
+      setVideoImgAnimation('video_img_container');
     } else if (gesture && change) {
       if (popup === '') {
         setTitleAnimation('title-animation');
@@ -57,15 +57,15 @@ function Template_1() {
           setCommentAnimation('b2 comment-animation');
           setDescriptionAnimation('b4 description-animation');
         }, 200);
-        if (electrified_page.page_present === 0) setTimeout(() => setVideoImgAnimation('vedio_img_container-animation'), 300);
-        else setVideoImgAnimation('vedio_img_container-animation2');
+        if (electrified_page.page_present === 0) setTimeout(() => setVideoImgAnimation('video_img_container-animation'), 300);
+        else setVideoImgAnimation('video_img_container-animation2');
       }
     } else {
       setTitleAnimation('title');
       setImgAnimation('img-container');
       setCommentAnimation('b2 comment');
       setDescriptionAnimation('b4 description');
-      setVideoImgAnimation('vedio_img_container');
+      setVideoImgAnimation('video_img_container');
     }
   };
 
@@ -121,7 +121,7 @@ function Template_1() {
       <div className={img_Animation}>
         <img className="img" src={url} />
       </div>
-      {popup === 'video' && <Popup_Video video={new URL(`/${selected_electrified}/${electrified_page.page.video_image}`, import.meta.url).href} />}
+      {popup === 'video' && <Popup_Video />}
     </div>
   );
 }

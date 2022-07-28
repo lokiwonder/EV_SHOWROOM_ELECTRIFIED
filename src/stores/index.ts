@@ -10,5 +10,6 @@ import usePopupStore from './popup.store';
 import usetemplate_3_Store from './template3.store';
 import useLoadStore from './load.store';
 import useAssetsStore from './assets.store';
+import useVideoStore from './video.store';
 
-export { useUpdateStatusStore, useSettingStore, useLanguageStore, useElectrifiedStore, useElectrifiedMenuStore, useElectrifiedSelectStore, useElectrifiedPageStore, useGestureStore, usePopupStore, usetemplate_3_Store,useLoadStore, useAssetsStore };
+export { useUpdateStatusStore, useSettingStore, useLanguageStore, useElectrifiedStore, useElectrifiedMenuStore, useElectrifiedSelectStore, useElectrifiedPageStore, useGestureStore, usePopupStore, usetemplate_3_Store,useLoadStore, useAssetsStore, useVideoStore };

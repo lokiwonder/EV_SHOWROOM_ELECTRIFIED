@@ -80,17 +80,17 @@
     animation: video-tmp-img-animation 0.8s;
 }
 
-.vedio_img_container {
+.video_img_container {
     margin-right: 2.03vw;
 }
 
-.vedio_img_container-animation {
+.video_img_container-animation {
     margin-right: 2.03vw;
 
     animation: template-1-video-img 0.4s;
 }
 
-.vedio_img_container-animation2 {
+.video_img_container-animation2 {
     margin-right: 2.03vw;
 
     animation: template-1-video-img2 1.2s;

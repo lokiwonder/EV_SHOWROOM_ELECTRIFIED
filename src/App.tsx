@@ -15,6 +15,8 @@ function App() {
   const { load_status } = useLoadStore();
   //  variable
 
+  console.log(setting);
+
   return (
     <Router>
       { 

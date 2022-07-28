@@ -98,4 +98,9 @@ export interface IAssetValue {
   image_url: Array<string>;
   video_url: string;
 }
+
+export interface IVideoURL {
+  video: string;
+  video_url: string;
+}
 //        interface (common)        //

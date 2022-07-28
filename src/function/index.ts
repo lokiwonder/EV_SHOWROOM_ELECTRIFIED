@@ -26,7 +26,8 @@ import { v4 as uuidv4 } from "uuid";
 import * as JSZip from "jszip";
 import axios from "axios";
 import * as fs from "@tauri-apps/api/fs";
-import { IAssetValue, Electrified, Template_3, Template_1, Template_2 } from "@interface";
+import { IAssetValue, Electrified, Template_3, Template_1, Template_2, IVideoURL } from "@interface";
+import { VideoURL } from "@class";
 
 // description: Response로 받은 파일 압축 해제 처리
 export const unzip = (data: any) => {
@@ -83,7 +84,8 @@ export const DATA = async () => {
       dir: fs.BaseDirectory.Document,
     });
     return JSON.parse(data_file);
-  } catch (e) {
+  } catch (e: any) {
+    console.log(`DATA read error ${e.message}`);
     return {
       app_id: "",
       app_version: APP_VERSION,
@@ -203,11 +205,11 @@ export const loadResource = async (data: Array<Electrified>) => {
     // description: Main Page Resource 추가 //
     result.push(await getAssetValue(electrified.electrified_item_name, electrified.main.image, "", electrified.main.sequence_number, ELECTRIFIED_MAIN));
     // description: Highlights Resource 추가 //
-    for (const item of electrified.highlights) setTemplateResource(result, item, electrified.electrified_item_name, HIGHLIGHTS);
+    for (const item of electrified.highlights) await setTemplateResource(result, item, electrified.electrified_item_name, HIGHLIGHTS);
     // description: Charging Resource 추가 //
-    for (const item of electrified.charging) setTemplateResource(result, item, electrified.electrified_item_name, CHARGING);
+    for (const item of electrified.charging) await setTemplateResource(result, item, electrified.electrified_item_name, CHARGING);
     // description: Benefits Resource 추가 //
-    for (const item of electrified.benefits) setTemplateResource(result, item, electrified.electrified_item_name, BENEFITS);
+    for (const item of electrified.benefits) await setTemplateResource(result, item, electrified.electrified_item_name, BENEFITS);
   }
   return result;
 };
@@ -307,4 +309,27 @@ const setTemplateResource = async (result: Array<IAssetValue>, item: any, electr
   if(item.type === TEMPLATE_1) result.push(await getAssetValue1(electrified_item_name, item as Template_1, classification));
   if(item.type === TEMPLATE_2) result.push(await getAssetValue2(electrified_item_name, item as Template_2, classification));
   if(item.type === TEMPLATE_3) result.push(await getAssetValue(electrified_item_name, (item as Template_3).image, "", item.sequence_number, classification));
+}
+
+// description: Video url 구하기 //
+export const getVideoURL = async (data: Array<Electrified>) => {
+  const result: Array<IVideoURL> = [];
+  for (const electrified of data) 
+    for (const item of electrified.charging) 
+      await checkVideoURL(electrified.electrified_item_name, item as Template_1, result);
+  return result;
+}
+
+// description: video url check //
+const checkVideoURL = async (electrified_name: string, item: Template_1, result: Array<IVideoURL>) => {
+  let flag = false;
+  for (const x of result) {
+    if(x.video === item.video) {
+      flag = true;
+    };
+  }
+  if (flag === true) return;
+
+  const video_url = await getResourceURL(electrified_name, item.video);
+  result.push({video: item.video, video_url});
 }

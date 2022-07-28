@@ -8,11 +8,13 @@ import {
   useLanguageStore,
   useElectrifiedStore,
   useAssetsStore,
+  useVideoStore,
 } from "src/stores";
 import {
   checkElectrifiedVersion,
   checkTranslationVersion,
   DATA,
+  getVideoURL,
   imageURL,
   loadResource,
 } from "src/function";
@@ -26,6 +28,7 @@ function UpdateCheck() {
   const { setLanguage } = useLanguageStore();
   const { electrifies, initElectirified } = useElectrifiedStore();
   const { setAssetList } = useAssetsStore();
+  const { setVideos } = useVideoStore();
 
   const [update1_check, setUpdate1Check] = useState<boolean>(false);
   const [update2_check, setUpdate2Check] = useState<boolean>(false);
@@ -63,10 +66,13 @@ function UpdateCheck() {
     if (update_status === 3) {
       const electrifies = (await DATA()).translations[0].electrifies;
       loadResource(electrifies).then((list) => {
-        console.log(list);
         setAssetList(list);
-        setUpdate3Check(true);
-        setTimeout(() => setUpdateStatus(update_status + 1), 1500);
+        getVideoURL(electrifies).then((list) => {
+          console.log(list);
+          setVideos(list);
+          setUpdate3Check(true);
+          setTimeout(() => setUpdateStatus(update_status + 1), 1500);
+        });
       });
     }
   };
