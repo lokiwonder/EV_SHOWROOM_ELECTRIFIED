@@ -22,11 +22,12 @@ INIT_DATA();
 //        function        //
 const useStore = create<SettingState>((set) => ({
   setting: tmp,
-  setSetting: (setting) =>
+  setSetting: async (setting) => {
     set((state) => ({
       ...state,
       setting,
-    })),
+    }));
+  }
 }));
 
 //        function        //

@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// import * as fs from "@tauri-apps/api/fs";
+
 import {
   HyundaiLogo2,
   BottomArrowIcon,
@@ -12,6 +14,7 @@ import { electrifiedInitialize, DATA } from "src/function";
 
 import "./style.css";
 import Lottie from "react-lottie";
+
 
 function SelectCountry() {
   const { setSetting } = useSettingStore();
@@ -47,17 +50,30 @@ function SelectCountry() {
   };
 
   const setSettings = async () => {
-    const data = await DATA();
-    console.log(data);
-    const setting = data.setting;
-    console.log(setting);
-    setSetting(setting);
+    // try {
+    //   const data_file = await fs.readTextFile('data.json', {
+    //     dir: fs.BaseDirectory.Document,
+    //   });
+    //   setSetting(JSON.parse(data_file));
+    // } catch (e) {
+    //   console.log(e);
+    // }
+    DATA().then((data) => {
+      const setting = data.setting;
+      setSetting(setting);
+    }).catch(async () => {
+      const setting = (await DATA()).settting;
+      setSetting(setting);
+    })
   };
 
   const onContinueHandler = () => {
+    const start = new Date().getTime();
     setCountinueFlage(true);
-    electrifiedInitialize(country.code).then(() => {
-      setSettings();
+    electrifiedInitialize(country.code).then(async () => {
+      const end = new Date().getTime();
+      console.log(`run time: ${(end - start) / 1000} sec`);
+      await setSettings();
     });
   };
 

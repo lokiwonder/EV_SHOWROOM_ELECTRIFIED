@@ -3,7 +3,6 @@ import * as R from "ramda";
 
 import { useAssetsStore, useElectrifiedStore, useGestureStore } from "src/stores";
 import { MainButtonIcon } from "src/assets/images";
-import { imageURL } from "src/function";
 
 import "./style.css";
 import { SELECTOR } from "src/constants";

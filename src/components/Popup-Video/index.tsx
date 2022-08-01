@@ -1,11 +1,13 @@
+import { getResourceURL } from '@function';
 import { useEffect, useRef, useState } from 'react';
 
 import { PopupCloseIcon, ChargingThumb } from 'src/assets/images';
-import { usePopupStore, useGestureStore, useElectrifiedPageStore, useVideoStore } from 'src/stores';
+import { usePopupStore, useGestureStore, useElectrifiedPageStore, useVideoStore, useElectrifiedSelectStore } from 'src/stores';
 
 import './style.css';
 
 function Popup_Video() {
+  // const { selected_electrified } = useElectrifiedSelectStore();
   const { electrified_page } = useElectrifiedPageStore();
   const { checkGesture } = useGestureStore();
   const { closePopup } = usePopupStore();
@@ -20,12 +22,9 @@ function Popup_Video() {
   const ref = useRef<HTMLVideoElement>(null);
 
   const setURI = () => {
-    console.log(videos);
+    // setUrl(await getResourceURL(selected_electrified, electrified_page.page.video));
     for (const item of videos)  {
-      console.log(item);
-      console.log(electrified_page.page);
       if(item.video === electrified_page.page.video) {
-        console.log(item.video_url);
         setUrl(item.video_url);
         break;
       }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useElectrifiedSelectStore, useElectrifiedPageStore, useGestureStore, usetemplate_3_Store, useAssetsStore } from 'src/stores';
-import { imageURL } from 'src/function';
 
 import './style.css';
 

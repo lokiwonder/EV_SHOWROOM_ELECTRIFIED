@@ -33,7 +33,6 @@ import {
   TEMPLATE_2,
   TEMPLATE_3,
 } from "src/constants";
-import { imageURL } from "src/function";
 
 import "./style.css";
 

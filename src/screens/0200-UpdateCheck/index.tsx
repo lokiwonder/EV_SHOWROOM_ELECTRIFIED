@@ -15,7 +15,6 @@ import {
   checkTranslationVersion,
   DATA,
   getVideoURL,
-  imageURL,
   loadResource,
 } from "src/function";
 import { SPINNER_LOTTIE_OPTIONS } from "src/constants";
@@ -33,6 +32,9 @@ function UpdateCheck() {
   const [update1_check, setUpdate1Check] = useState<boolean>(false);
   const [update2_check, setUpdate2Check] = useState<boolean>(false);
   const [update3_check, setUpdate3Check] = useState<boolean>(false);
+
+  const [image_load, setImageLoad] = useState<boolean>(false);
+  const [video_load, setVideoLoad] = useState<boolean>(false);
 
   // description: setting, language, electrified store 변경 //
   const settingUpdate = async () => {
@@ -65,17 +67,21 @@ function UpdateCheck() {
     // description: Asset Load //
     if (update_status === 3) {
       const electrifies = (await DATA()).translations[0].electrifies;
-      loadResource(electrifies).then((list) => {
-        setAssetList(list);
-        getVideoURL(electrifies).then((list) => {
-          console.log(list);
-          setVideos(list);
-          setUpdate3Check(true);
-          setTimeout(() => setUpdateStatus(update_status + 1), 1500);
-        });
-      });
+      load(electrifies);
     }
   };
+
+  // description: Load //
+  const load = (electrifies: any) => {
+    loadResource(electrifies).then((list) => {
+      setAssetList(list);
+      setImageLoad(true);
+    });
+    getVideoURL(electrifies).then((list) => {
+      setVideos(list);
+      setVideoLoad(true);
+    });
+  }
 
   const Checker = () => {
     return (
@@ -146,6 +152,13 @@ function UpdateCheck() {
   useEffect(() => {
     updates();
   }, [update_status]);
+
+  useEffect(() => {
+    if (image_load && video_load) {
+      setUpdate3Check(true);
+      setTimeout(() => setUpdateStatus(update_status + 1), 1500);
+    }
+  }, [image_load, video_load])
 
   return (
     <div className="country-background">

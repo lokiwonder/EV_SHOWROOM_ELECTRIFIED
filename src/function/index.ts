@@ -80,12 +80,12 @@ export const decompressionByType = async (zip: JSZip) => {
 // description: setting data 불러오기 //
 export const DATA = async () => {
   try {
-    const data_file = await fs.readTextFile(`data.json`, {
+    const data_file = await fs.readTextFile('data.json', {
       dir: fs.BaseDirectory.Document,
     });
     return JSON.parse(data_file);
   } catch (e: any) {
-    console.log(`DATA read error ${e.message}`);
+    console.log(`DATA read error ${e}`);
     return {
       app_id: "",
       app_version: APP_VERSION,
@@ -105,13 +105,6 @@ export const resourceURL = async (
   resource: string
 ) => {
   return await fs.readBinaryFile(`${selected_electrified}/${resource}`, {
-    dir: fs.BaseDirectory.Document,
-  });
-};
-
-// todo: 삭제 할 함수 //
-export const imageURL = async (selected_electrified: string, image: string) => {
-  return await fs.readBinaryFile(`${selected_electrified}/${image}`, {
     dir: fs.BaseDirectory.Document,
   });
 };
@@ -194,25 +187,44 @@ export const checkTranslationVersion = async (
 
 // description: resource load //
 export const loadResource = async (data: Array<Electrified>) => {
+  const start = new Date().getTime();
   const result: Array<IAssetValue> = [];
-  for (const electrified of data) {
-    // description: SELECT Page Resource 추가 //
-    result.push(await getAssetValue(electrified.electrified_item_name, electrified.main_image, "", 0, SELECTOR));
-    // description: Calculation Popup Resource 추가 //
-    result.push(await getAssetValue(electrified.electrified_item_name, electrified.calculation_image, "", 0, CALCULATION));
-    // description: 360 Popup Resource 추가 //
-    result.push(await getAssetValue(electrified.electrified_item_name, electrified.rotation_image, "", 0, ROTATION));
-    // description: Main Page Resource 추가 //
-    result.push(await getAssetValue(electrified.electrified_item_name, electrified.main.image, "", electrified.main.sequence_number, ELECTRIFIED_MAIN));
-    // description: Highlights Resource 추가 //
-    for (const item of electrified.highlights) await setTemplateResource(result, item, electrified.electrified_item_name, HIGHLIGHTS);
-    // description: Charging Resource 추가 //
-    for (const item of electrified.charging) await setTemplateResource(result, item, electrified.electrified_item_name, CHARGING);
-    // description: Benefits Resource 추가 //
-    for (const item of electrified.benefits) await setTemplateResource(result, item, electrified.electrified_item_name, BENEFITS);
-  }
+  await loadResource2(result, data)
+  const end = new Date().getTime();
+  console.log(`run time: ${(end - start) / 1000} sec`);
   return result;
 };
+
+// description: resource load 2 //
+const loadResource2 = async (result: Array<IAssetValue>, data: any) => {
+  for (const electrified of data) {
+    // description: SELECT Page Resource 추가 //
+    loadSelect(result, electrified);
+    // description: Calculation Popup Resource 추가 //
+    loadCalculation(result, electrified);
+    // description: 360 Popup Resource 추가 //
+    load360(result, electrified);
+    // description: Main Page Resource 추가 //
+    loadMain(result, electrified);
+    // description: Highlights Resource 추가 //
+    for (const item of electrified.highlights) loadClassification(result, electrified, item, HIGHLIGHTS);
+    // description: Charging Resource 추가 //
+    for (const item of electrified.charging) loadClassification(result, electrified, item, CHARGING);
+    // description: Benefits Resource 추가 //
+    for (const item of electrified.benefits) loadClassification(result, electrified, item, BENEFITS);
+  }
+}
+
+// description: SELECT Image Load //
+const loadSelect = async (result: Array<IAssetValue>, electrified: any) => result.push(await getAssetValue(electrified.electrified_item_name, electrified.main_image, "", 0, SELECTOR));
+// description: Calculation Image Load //
+const loadCalculation = async (result: Array<IAssetValue>, electrified: any) => result.push(await getAssetValue(electrified.electrified_item_name, electrified.calculation_image, "", 0, CALCULATION));
+// description: 360 Image Load //
+const load360 = async (result: Array<IAssetValue>, electrified: any) => result.push(await getAssetValue(electrified.electrified_item_name, electrified.rotation_image, "", 0, ROTATION));
+// description: Main Image Load //
+const loadMain = async (result: Array<IAssetValue>, electrified: any) => result.push(await getAssetValue(electrified.electrified_item_name, electrified.main.image, "", electrified.main.sequence_number, ELECTRIFIED_MAIN));
+// description: Classifications (Highlights, Charging, Benefits) Load //
+const loadClassification = async (result: Array<IAssetValue>, electrified: any, item: any, classification: string) => await setTemplateResource(result, item, electrified.electrified_item_name, classification);
 
 // description: resource load //
 const getAssetValue = async (
@@ -250,16 +262,12 @@ const getAssetValue1 = async (
   // description: video image가 존재하면 video image 추가 //
   if(item.video_image) image_url.push(await getResourceURL(item_name, item.video_image));
 
-  let video_url = '';
-  // description: video 값이 존재할 경우 video url 구하기 //
-  if (item.video && !video_url) video_url = await getResourceURL(item_name, item.video);
-
   return {
     electrified: item_name,
     classification,
     sequence: item.sequence_number,
     image_url,
-    video_url,
+    video_url : '',
   };
 };
 
@@ -285,7 +293,7 @@ const getAssetValue2 = async (
 };
 
 // description: resource url 구하기 //
-const getResourceURL = async (item_name: string, resource_name: string) => {
+export const getResourceURL = async (item_name: string, resource_name: string) => {
   // description: resource 데이터 받아오기 //
   const resource = await resourceURL(item_name, resource_name);
   // description: resource 확장자 확인 //
@@ -306,6 +314,7 @@ const getResorceType = (resource_name: string) => {
 
 // description: Template 별 resource 추가 //
 const setTemplateResource = async (result: Array<IAssetValue>, item: any, electrified_item_name: string, classification: string) => {
+  console.log(`start run time : ${Date().toString()}`);
   if(item.type === TEMPLATE_1) result.push(await getAssetValue1(electrified_item_name, item as Template_1, classification));
   if(item.type === TEMPLATE_2) result.push(await getAssetValue2(electrified_item_name, item as Template_2, classification));
   if(item.type === TEMPLATE_3) result.push(await getAssetValue(electrified_item_name, (item as Template_3).image, "", item.sequence_number, classification));
@@ -313,22 +322,22 @@ const setTemplateResource = async (result: Array<IAssetValue>, item: any, electr
 
 // description: Video url 구하기 //
 export const getVideoURL = async (data: Array<Electrified>) => {
+  console.log('video load start...');
+  const start = new Date().getTime();
   const result: Array<IVideoURL> = [];
   for (const electrified of data) 
     for (const item of electrified.charging) 
       await checkVideoURL(electrified.electrified_item_name, item as Template_1, result);
+  const end = new Date().getTime();
+  console.log(`video load run time: ${(end - start) / 1000} sec`);
   return result;
 }
 
 // description: video url check //
 const checkVideoURL = async (electrified_name: string, item: Template_1, result: Array<IVideoURL>) => {
   let flag = false;
-  for (const x of result) {
-    if(x.video === item.video) {
-      flag = true;
-    };
-  }
-  if (flag === true) return;
+  for (const x of result) if(x.video === item.video) flag = true;
+  if (flag) return;
 
   const video_url = await getResourceURL(electrified_name, item.video);
   result.push({video: item.video, video_url});
