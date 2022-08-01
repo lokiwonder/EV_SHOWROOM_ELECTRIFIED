@@ -34,7 +34,7 @@ function UpdateCheck() {
   const [update3_check, setUpdate3Check] = useState<boolean>(false);
 
   const [image_load, setImageLoad] = useState<boolean>(false);
-  const [video_load, setVideoLoad] = useState<boolean>(false);
+  // const [video_load, setVideoLoad] = useState<boolean>(false);
 
   // description: setting, language, electrified store 변경 //
   const settingUpdate = async () => {
@@ -79,7 +79,6 @@ function UpdateCheck() {
     });
     getVideoURL(electrifies).then((list) => {
       setVideos(list);
-      setVideoLoad(true);
     });
   }
 
@@ -154,11 +153,11 @@ function UpdateCheck() {
   }, [update_status]);
 
   useEffect(() => {
-    if (image_load && video_load) {
+    if (image_load) {
       setUpdate3Check(true);
       setTimeout(() => setUpdateStatus(update_status + 1), 1500);
     }
-  }, [image_load, video_load])
+  }, [image_load])
 
   return (
     <div className="country-background">

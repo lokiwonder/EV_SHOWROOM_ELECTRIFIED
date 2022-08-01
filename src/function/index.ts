@@ -188,8 +188,10 @@ export const checkTranslationVersion = async (
 // description: resource load //
 export const loadResource = async (data: Array<Electrified>) => {
   const start = new Date().getTime();
+  // 반환 할 데이터 //
   const result: Array<IAssetValue> = [];
-  await loadResource2(result, data)
+  await loadResource2(result, data);
+  loadAfter(result, data);
   const end = new Date().getTime();
   console.log(`run time: ${(end - start) / 1000} sec`);
   return result;
@@ -206,6 +208,17 @@ const loadResource2 = async (result: Array<IAssetValue>, data: any) => {
     load360(result, electrified);
     // description: Main Page Resource 추가 //
     loadMain(result, electrified);
+    // description: Highlights Resource 추가 //
+    // for (const item of electrified.highlights) loadClassification(result, electrified, item, HIGHLIGHTS);
+    // description: Charging Resource 추가 //
+    // for (const item of electrified.charging) loadClassification(result, electrified, item, CHARGING);
+    // description: Benefits Resource 추가 //
+    // for (const item of electrified.benefits) loadClassification(result, electrified, item, BENEFITS);
+  }
+}
+
+const loadAfter = async (result: Array<IAssetValue>, data: any) => {
+  for (const electrified of data) {
     // description: Highlights Resource 추가 //
     for (const item of electrified.highlights) loadClassification(result, electrified, item, HIGHLIGHTS);
     // description: Charging Resource 추가 //

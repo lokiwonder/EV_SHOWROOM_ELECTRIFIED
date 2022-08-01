@@ -9,6 +9,7 @@ import {
   Popup_360,
   Popup_Calculator,
 } from "src/components";
+import { getVideoURL } from "src/function";
 import {
   useElectrifiedSelectStore,
   useElectrifiedPageStore,
@@ -18,6 +19,7 @@ import {
   usetemplate_3_Store,
   useSettingStore,
   useAssetsStore,
+  useVideoStore,
 } from "src/stores";
 import {
   RightArrowIcon,
@@ -61,6 +63,7 @@ function Main() {
   const { popup } = usePopupStore();
   const { setFirst, notFirst } = usetemplate_3_Store();
   const { asset_list } = useAssetsStore();
+  const { setVideos } = useVideoStore();
 
   const [next, setNext] = useState<boolean>(true);
   const [first_p, setFirstP] = useState<boolean>(false);
@@ -363,6 +366,12 @@ function Main() {
     );
   };
   //                component                //
+
+  useEffect(() => {
+    getVideoURL(electrifies).then((list) => {
+      setVideos(list);
+    });
+  }, []);
 
   useEffect(() => {
     if (home) {
