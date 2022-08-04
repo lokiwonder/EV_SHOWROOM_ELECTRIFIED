@@ -216,11 +216,11 @@ const loadBefore = async (result: Array<IAssetValue>, data: any) => {
 const loadAfter = async (result: Array<IAssetValue>, data: any) => {
   for (const electrified of data) {
     // description: Highlights Resource 추가 //
-    for (const item of electrified.highlights) loadClassification(result, electrified, item, HIGHLIGHTS);
+    for (const item of electrified.highlights) await loadClassification(result, electrified, item, HIGHLIGHTS);
     // description: Charging Resource 추가 //
-    for (const item of electrified.charging) loadClassification(result, electrified, item, CHARGING);
+    for (const item of electrified.charging) await loadClassification(result, electrified, item, CHARGING);
     // description: Benefits Resource 추가 //
-    for (const item of electrified.benefits) loadClassification(result, electrified, item, BENEFITS);
+    for (const item of electrified.benefits) await loadClassification(result, electrified, item, BENEFITS);
   }
 }
 
