@@ -27,7 +27,6 @@ import * as JSZip from "jszip";
 import axios from "axios";
 import * as fs from "@tauri-apps/api/fs";
 import { IAssetValue, Electrified, Template_3, Template_1, Template_2, IVideoURL } from "@interface";
-import { VideoURL } from "@class";
 
 // description: Response로 받은 파일 압축 해제 처리
 export const unzip = (data: any) => {
@@ -44,11 +43,11 @@ export const decompressionByType = async (zip: JSZip) => {
   // description: 압축 파일 반복 접근 //
   Object.keys(zip.files).forEach(async function (file_name) {
     // description: data.json 파일 일 때 //
-    if (file_name === "data.json") {
+    if (file_name === 'data.json') {
       // description: 문자열로 파일 압축 해제 //
       const content = await zip.files[file_name].async("string");
       // description: 문자열 파일 쓰기 //
-      await fs.writeFile(file_name, content, {
+      await fs.writeTextFile(file_name, content, {
         dir: fs.BaseDirectory.Document,
       });
     }
@@ -187,18 +186,15 @@ export const checkTranslationVersion = async (
 
 // description: resource load //
 export const loadResource = async (data: Array<Electrified>) => {
-  const start = new Date().getTime();
-  // 반환 할 데이터 //
+  // description: 반환 할 데이터 //
   const result: Array<IAssetValue> = [];
-  await loadResource2(result, data);
+  await loadBefore(result, data);
   loadAfter(result, data);
-  const end = new Date().getTime();
-  console.log(`run time: ${(end - start) / 1000} sec`);
   return result;
 };
 
 // description: resource load 2 //
-const loadResource2 = async (result: Array<IAssetValue>, data: any) => {
+const loadBefore = async (result: Array<IAssetValue>, data: any) => {
   for (const electrified of data) {
     // description: SELECT Page Resource 추가 //
     loadSelect(result, electrified);
@@ -327,7 +323,6 @@ const getResorceType = (resource_name: string) => {
 
 // description: Template 별 resource 추가 //
 const setTemplateResource = async (result: Array<IAssetValue>, item: any, electrified_item_name: string, classification: string) => {
-  console.log(`start run time : ${Date().toString()}`);
   if(item.type === TEMPLATE_1) result.push(await getAssetValue1(electrified_item_name, item as Template_1, classification));
   if(item.type === TEMPLATE_2) result.push(await getAssetValue2(electrified_item_name, item as Template_2, classification));
   if(item.type === TEMPLATE_3) result.push(await getAssetValue(electrified_item_name, (item as Template_3).image, "", item.sequence_number, classification));
@@ -335,14 +330,10 @@ const setTemplateResource = async (result: Array<IAssetValue>, item: any, electr
 
 // description: Video url 구하기 //
 export const getVideoURL = async (data: Array<Electrified>) => {
-  console.log('video load start...');
-  const start = new Date().getTime();
   const result: Array<IVideoURL> = [];
   for (const electrified of data) 
     for (const item of electrified.charging) 
       await checkVideoURL(electrified.electrified_item_name, item as Template_1, result);
-  const end = new Date().getTime();
-  console.log(`video load run time: ${(end - start) / 1000} sec`);
   return result;
 }
 

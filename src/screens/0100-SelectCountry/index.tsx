@@ -7,7 +7,7 @@ import {
   BottomArrowIcon,
   SelectLanguageLogo,
 } from "src/assets/images";
-import { useSettingStore } from "src/stores";
+import { useDownloadStatusStore, useSettingStore } from "src/stores";
 import { CountrySelector } from "src/classes";
 import { COUNTRIES, SPINNER_LOTTIE_OPTIONS } from "src/constants";
 import { electrifiedInitialize, DATA } from "src/function";
@@ -18,6 +18,7 @@ import Lottie from "react-lottie";
 
 function SelectCountry() {
   const { setSetting } = useSettingStore();
+  const { setDownloadStatus } = useDownloadStatusStore();
 
   const [input_status, setInputStatus] = useState<boolean>(false);
   const [input_text, setInputText] = useState<string>("b3 active");
@@ -50,21 +51,17 @@ function SelectCountry() {
   };
 
   const setSettings = async () => {
-    // try {
-    //   const data_file = await fs.readTextFile('data.json', {
-    //     dir: fs.BaseDirectory.Document,
-    //   });
-    //   setSetting(JSON.parse(data_file));
-    // } catch (e) {
-    //   console.log(e);
-    // }
-    DATA().then((data) => {
-      const setting = data.setting;
-      setSetting(setting);
-    }).catch(async () => {
-      const setting = (await DATA()).settting;
-      setSetting(setting);
-    })
+    const setting = (await DATA()).settting;
+    console.log('setting');
+    console.log(setting);
+    setSetting(setting);
+    // DATA().then((data) => {
+    //   const setting = data.setting;
+    //   setSetting(setting);
+    // }).catch(async () => {
+    //   const setting = (await DATA()).settting;
+    //   setSetting(setting);
+    // })
   };
 
   const onContinueHandler = () => {
@@ -74,11 +71,12 @@ function SelectCountry() {
       const end = new Date().getTime();
       console.log(`run time: ${(end - start) / 1000} sec`);
       await setSettings();
+      // setTimeout(() => setSettings(), 1000);
     });
   };
 
   // component //
-  // description: select box component
+  // description: select box component //
   const SelectBox = () => {
     return (
       <div className="selector-box-container">

@@ -38,9 +38,10 @@ function UpdateCheck() {
 
   // description: setting, language, electrified store 변경 //
   const settingUpdate = async () => {
-    setSetting((await DATA()).setting);
-    setLanguage((await DATA()).setting.default_language);
-    initElectirified(await DATA());
+    const data = await DATA();
+    setSetting(data.setting);
+    setLanguage(data.setting.default_language);
+    initElectirified(data);
   };
 
   const updates = async () => {
@@ -52,7 +53,10 @@ function UpdateCheck() {
           setUpdate1Check(true);
           setTimeout(() => setUpdateStatus(update_status + 1), 1500);
         }
-      );
+      ).catch(() => {
+        setUpdate1Check(true);
+          setTimeout(() => setUpdateStatus(update_status + 1), 1500);
+      });
     }
     // description: Translation Update check //
     if (update_status === 2) {
@@ -62,12 +66,18 @@ function UpdateCheck() {
           setUpdate2Check(true);
           setTimeout(() => setUpdateStatus(update_status + 1), 1500);
         }
-      );
+      ).catch(() => {
+        setUpdate1Check(true);
+          setTimeout(() => setUpdateStatus(update_status + 1), 1500);
+      });
     }
     // description: Asset Load //
     if (update_status === 3) {
-      const electrifies = (await DATA()).translations[0].electrifies;
-      load(electrifies);
+      setTimeout(async () => {
+        await settingUpdate();
+        const electrifies = (await DATA()).translations[0].electrifies;
+        load(electrifies);
+      }, 1000);
     }
   };
 

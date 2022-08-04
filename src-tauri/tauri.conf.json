@@ -15,7 +15,7 @@
     "allowlist": {
       "all": true,
       "fs": {
-        "scope": ["$DOCUMENT/**"]
+        "scope": ["$DOCUMENT/**", "$DOCUMENT/*", "$DOCUMENT"]
       },
       "path": {
         "all": false
@@ -55,7 +55,7 @@
     },
     "windows": [
       {
-        "fullscreen": true,
+        "fullscreen": false,
         "height": 1080,
         "resizable": false,
         "title": "EV SHOWROOM ELECTRIFIED",

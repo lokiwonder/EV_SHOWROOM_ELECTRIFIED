@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // screens | components
 import { SplashView, VehicleMainView, SelectCountryView, UpdateCheckView } from 'src/screens';
 // stores
-import { useSettingStore, useUpdateStatusStore, useLoadStore } from 'src/stores';
+import { useSettingStore, useUpdateStatusStore, useLoadStore, useDownloadStatusStore } from 'src/stores';
 
 // etc
 import './App.css';
@@ -13,6 +13,7 @@ function App() {
   const { setting } = useSettingStore();
   const { update_status } = useUpdateStatusStore();
   const { load_status } = useLoadStore();
+  const { download_status } = useDownloadStatusStore();
   //  variable
 
   console.log(setting);
@@ -31,7 +32,6 @@ function App() {
         (<UpdateCheckView />) :
         // description: 모든 업데이트가 완료되었을 때 //
         (<VehicleMainView />) 
-        
       }
       
     </Router>
