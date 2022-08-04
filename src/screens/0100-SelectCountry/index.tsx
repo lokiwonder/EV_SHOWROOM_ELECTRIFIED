@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-// import * as fs from "@tauri-apps/api/fs";
+import { relaunch } from "@tauri-apps/api/process";
 
 import {
   HyundaiLogo2,
@@ -70,7 +70,7 @@ function SelectCountry() {
     electrifiedInitialize(country.code).then(async () => {
       const end = new Date().getTime();
       console.log(`run time: ${(end - start) / 1000} sec`);
-      await setSettings();
+      relaunch();
       // setTimeout(() => setSettings(), 1000);
     });
   };
