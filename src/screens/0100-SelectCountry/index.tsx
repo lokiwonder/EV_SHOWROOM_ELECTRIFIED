@@ -2,23 +2,22 @@ import { useState } from "react";
 
 import { relaunch } from "@tauri-apps/api/process";
 
+import Lottie from "react-lottie";
 import {
   HyundaiLogo2,
   BottomArrowIcon,
   SelectLanguageLogo,
 } from "src/assets/images";
-import { useDownloadStatusStore, useSettingStore } from "src/stores";
+import { useSettingStore } from "src/stores";
 import { CountrySelector } from "src/classes";
 import { COUNTRIES, SPINNER_LOTTIE_OPTIONS } from "src/constants";
 import { electrifiedInitialize, DATA } from "src/function";
 
 import "./style.css";
-import Lottie from "react-lottie";
 
 
 function SelectCountry() {
   const { setSetting } = useSettingStore();
-  const { setDownloadStatus } = useDownloadStatusStore();
 
   const [input_status, setInputStatus] = useState<boolean>(false);
   const [input_text, setInputText] = useState<string>("b3 active");
@@ -26,6 +25,9 @@ function SelectCountry() {
     new CountrySelector()
   );
   const [continue_flag, setCountinueFlage] = useState<boolean>(false);
+
+  // ! test ! //
+  const [test_Text, setTestText] = useState<string>('');
 
   const onBackgroundClickHandler = () => {
     if (input_status) {
@@ -52,31 +54,18 @@ function SelectCountry() {
 
   const setSettings = async () => {
     const setting = (await DATA()).settting;
-    console.log('setting');
-    console.log(setting);
     setSetting(setting);
-    // DATA().then((data) => {
-    //   const setting = data.setting;
-    //   setSetting(setting);
-    // }).catch(async () => {
-    //   const setting = (await DATA()).settting;
-    //   setSetting(setting);
-    // })
   };
 
   const onContinueHandler = () => {
-    const start = new Date().getTime();
     setCountinueFlage(true);
-    electrifiedInitialize(country.code).then(async () => {
-      const end = new Date().getTime();
-      console.log(`run time: ${(end - start) / 1000} sec`);
-      relaunch();
-      // setTimeout(() => setSettings(), 1000);
+    electrifiedInitialize(country.code).then((r) => {
+      setTestText(r);
+      // relaunch();
     });
   };
 
   // component //
-  // description: select box component //
   const SelectBox = () => {
     return (
       <div className="selector-box-container">
@@ -96,6 +85,7 @@ function SelectCountry() {
     );
   };
 
+  // component //
   const SelectCountryView = () => {
     return (
       <div className="country-select-box">
@@ -124,6 +114,7 @@ function SelectCountry() {
     );
   };
 
+  // component //
   const DownloadView = () => {
     return  (
       <div className="country-background">
@@ -135,6 +126,7 @@ function SelectCountry() {
                 options={SPINNER_LOTTIE_OPTIONS}
               />
               <p className="h5 white">Downloading Resource...</p>
+              { test_Text && (<p className="b4 active-red">{test_Text}</p>) }
             </div>
           </div>
         </div>
@@ -142,6 +134,7 @@ function SelectCountry() {
     )
   }
 
+  // component //
   const SelectView = () => {
     return (
       <div className="country-background" onClick={onBackgroundClickHandler}>

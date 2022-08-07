@@ -227,6 +227,87 @@ h6 {
   line-height: 1.2875vw;
 }
 
+.b7 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 0.729vw;
+  line-height: 0.9vw;
+}
+
+.b8 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 0.833vw;
+  line-height: 1.03vw;
+}
+
+
+.login-b1 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 10.41vw;
+  line-height: 12.875vw;
+}
+
+.login-b2 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 7.8125vw;
+  line-height: 9.65625vw;
+}
+
+.login-b3 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 6.25vw;
+  line-height: 7.724vw;
+}
+
+.login-b4 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 3.125vw;
+  line-height: 3.86vw;
+}
+
+.login-b5 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 2.6vw;
+  line-height: 3.21875vw;
+}
+
+.login-b6 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 5.21vw;
+  line-height: 6.4375vw;
+}
+
+.login-b7 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 3.646vw;
+  line-height: 4.505vw;
+}
+
+.login-b8 {
+  margin: 0px;
+  font-family: 'Hyundai Sans Head Regular';
+  font-weight: 400;
+  font-size: 4.1666vw;
+  line-height: 5.151vw;
+}
+
 .opacity-80 {
   opacity: 0.8;
 }

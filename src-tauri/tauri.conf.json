@@ -30,7 +30,7 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/32x32.png", "icons/icon.ico", "icons/icon.png"
+        "icons/32x32.png"
       ],
       "identifier": "com.evshowroom.electrified",
       "longDescription": "",
@@ -55,11 +55,13 @@
     },
     "windows": [
       {
-        "fullscreen": true,
-        "height": 1080,
+        "label": "main",
+        "height": 412,
+        "width": 384,
+        "fullscreen": false,
         "resizable": false,
-        "title": "EV SHOWROOM ELECTRIFIED",
-        "width": 1920
+        "decorations": false,
+        "center": true
       }
     ]
   }

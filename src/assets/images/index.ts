@@ -8,6 +8,7 @@ import HyundaiLogo2 from './HyundaiLogo2.png';
 import LanguageIcon from './Language.png';
 import LanguageActiveIcon from './LanguageActiveIcon.png';
 import Logo from './Logo.png';
+import LoginLogo from './LoginLogo.png';
 import MainBackground from './MainBackground.png';
 import MainButtonIcon from './MainButton.png';
 import MenuIcon from './Menu.png';
@@ -23,5 +24,9 @@ import PopupRightArrowIcon from './PopupRightArrow.png';
 import SelectLanguageLogo from './SelectLanguageLogo.png'
 import TempVideo from './TempVideo.png';
 import TopArrowWhiteIcon from './TopArrowWhite.png';
+import LoginCloseIcon from './LoginClose.png';
+import CheckBoxDefault from './CheckBoxDefault.png';
+import CheckBoxHover from './CheckBoxHover.png';
+import CheckBoxSelected from './CheckBoxSelected.png';
 
-export { RotationIcon, BarIcon, BottomArrowIcon, CalculatorIcon, ChargingThumb, HomeIcon, HyundaiLogo2, LanguageIcon, LanguageActiveIcon, Logo, MainBackground, MainButtonIcon, MenuIcon, MenuCloseIcon, HandNextIcon, HandPreviousIcon, RightArrowIcon, PopupCloseIcon, PopupLeftArrowIcon, PopupRightArrowIcon, Background360, TempVideo, TopArrowWhiteIcon, PlayIcon, SelectLanguageLogo};
+export { CheckBoxDefault, CheckBoxHover, CheckBoxSelected, RotationIcon, BarIcon, BottomArrowIcon, CalculatorIcon, ChargingThumb, HomeIcon, HyundaiLogo2, LanguageIcon, LanguageActiveIcon, LoginLogo, Logo, MainBackground, MainButtonIcon, MenuIcon, MenuCloseIcon, HandNextIcon, HandPreviousIcon, RightArrowIcon, PopupCloseIcon, PopupLeftArrowIcon, PopupRightArrowIcon, Background360, TempVideo, TopArrowWhiteIcon, PlayIcon, SelectLanguageLogo, LoginCloseIcon};

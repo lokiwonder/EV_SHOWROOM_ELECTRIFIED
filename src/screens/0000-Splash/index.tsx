@@ -15,7 +15,7 @@ function Splash() {
       setSetting((await DATA()).setting);
       setLoad();
     }, 3000);
-  }, [])
+  }, []);
 
   return (
     <div className="splash-background">

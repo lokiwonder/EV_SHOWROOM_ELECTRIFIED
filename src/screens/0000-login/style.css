@@ -1,0 +1,76 @@
+.login-background {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100vh;
+}
+
+.login-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo {
+    width: 37.421875vw;
+    height: 5.208vw;
+    margin-top: 14.5833vw;
+    margin-bottom: 3.125vw;
+}
+
+.login-title {
+    margin-bottom: 0.52083vw;
+}
+
+.login-input-container {
+    margin-top: 5.72916vw;
+}
+
+.login-input-text {
+    padding-bottom: 1.5625vw;
+}
+
+.login-input {
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 4.166vw;
+    border: 1px solid #dddddd;
+    border-radius: 0.78125vw;
+    width: 72.9166vw;
+    height: 7.8125vw;
+}
+
+.login-btn-container {
+    margin-top: 9.1146vw;
+}
+
+.login-btn {
+    display: block;
+    width: 78.125vw;
+    height: 10.4166vw;
+    border-radius: 1.04166vw;
+}
+
+.login-save-id-pw {
+    padding-top: 1.5vw;
+}
+
+.login-save-id-pw-checkbox {
+    width: 3.64583vw;
+    height: 3.64583vw;
+    margin-right: 1.5625vw;
+    vertical-align: middle;
+}
+
+.login-exit-btn {
+    position: absolute;
+    top: 3.6458vw;
+    right: 3.6458vw;
+    z-index: 5;
+}
+
+.login-exit-icon {
+    width: 3.6458vw;
+    height: 3.6458vw;
+}

@@ -31,11 +31,12 @@ import { IAssetValue, Electrified, Template_3, Template_1, Template_2, IVideoURL
 // description: Response로 받은 파일 압축 해제 처리
 export const unzip = (data: any) => {
   // description: blob file 생성
-  const blob_file = new Blob([data], { type: "application/octet-stream" });
+  // const blob_file = new Blob([data], { type: "application/octet-stream" });
   // description: blob file 압축 해제
-  JSZip.loadAsync(blob_file).then(
+  JSZip.loadAsync(data).then(
     async (zip) => await decompressionByType(zip)
-  );
+  )
+  .catch(e => console.error(e.message));
 };
 
 // description: 타입별 압축 해제 처리 //
@@ -150,12 +151,30 @@ export const LANGUAGE = (language: string) => {
 
 // description: 초기 리소스 다운로드 //
 export const electrifiedInitialize = async (country_code: string) => {
+  let flag = true;
+  let result = '';
   await axios({
     url: ELECTRIFIED_INITIALIZE_URL,
     method: "POST",
     data: { app_id: uuidv4(), app_version: APP_VERSION, country_code },
-    responseType: ARRAY_BUFFER,
-  }).then((response) => unzip(response?.data));
+    responseType: 'blob',
+    // responseType: ARRAY_BUFFER,
+    onDownloadProgress: (progressEvent) => {
+      console.log(progressEvent.loaded);
+        // flag = false;
+      // const total = parseFloat(progressEvent.currentTarget.responseHeaders['Content-Length']);
+      // const current = progressEvent.currentTarget.response.length;
+  
+      // let percentCompleted = Math.floor(current / total * 100);
+      // console.log('completed: ', percentCompleted);
+    }
+  }).then((response) => {
+    unzip(response?.data);
+  }).catch((e) => {
+    console.error(e.message);
+    result = e.message;
+  })
+  return result;
 };
 
 // description: 뷰 버전 Check //

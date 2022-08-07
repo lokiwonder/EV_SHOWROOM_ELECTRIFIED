@@ -1,10 +1,19 @@
 import { CountrySelector } from 'src/classes';
 import { SpinnerLottie, SplashLottie } from 'src/assets/lotties';
 
+// description: Login Launcher //
+export const LAUNCHER_WIDTH_RATE = 0.2;
+export const LAUNCHER_HEIGHT_RATE = 0.1458;
+export const LAUNCHER_TITLE = 'EV Contents management sys.'
+export const LAUNCHER_ID = 'ID';
+export const LAUNCHER_PASSWORD = 'Password';
+export const LAUNCHER_SAVE_ID_PW = 'Save ID Password';
+
 // description: just value //
 export const APP_VERSION = '0.0';
 export const ARRAY_BUFFER = 'arraybuffer';
 export const DATAJSON = 'data.json';
+
 
 // description: 화면 classification value //
 export const SELECTOR = 'selector';

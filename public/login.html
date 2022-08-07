@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const tauri_invoke = window.__TAURI__.invoke;
+        const tauri_process = window.__TAURI__.process;
+        function onLoginHandler() {
+            tauri_invoke('close_loginscreen');
+        }
+        function onCloseHandler() {
+            tauri_process.exit(0);
+        }
+    </script>
+</head>
+<body>
+    <h1>login</h1>
+    <button onclick="onLoginHandler();">로그인</button>
+    <button onclick="onCloseHandler();">종료</button>
+</body>
+</html>
