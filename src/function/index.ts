@@ -191,8 +191,7 @@ export const electrifiedInitialize = async (country_code: string) => {
   }).then((response) => {
     unzip(response?.data);
   }).catch((e) => {
-    console.error(e.message);
-    result = JSON.stringify(e);
+    result = e.config;
   })
   return result;
 };
