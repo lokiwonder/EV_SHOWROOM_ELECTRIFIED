@@ -62,7 +62,7 @@ function SelectCountry() {
     electrifiedInitialize(country.code).then((r) => {
       setTestText(r);
       setSettings();
-      // relaunch();
+      relaunch();
     });
   };
 
