@@ -1,7 +1,9 @@
+import * as fs from "@tauri-apps/api/fs";
+import * as http from "@tauri-apps/api/http"
 import {
   APP_VERSION,
-  ARRAY_BUFFER,
   BENEFITS,
+  BLOB,
   CALCULATION,
   CHARGING,
   ELECTRIFIED_INITIALIZE_URL,
@@ -13,6 +15,7 @@ import {
   JPEG,
   MP4,
   PNG,
+  POST,
   ROTATION,
   SELECTOR,
   TEMPLATE_1,
@@ -25,7 +28,6 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import * as JSZip from "jszip";
 import axios from "axios";
-import * as fs from "@tauri-apps/api/fs";
 import { IAssetValue, Electrified, Template_3, Template_1, Template_2, IVideoURL } from "@interface";
 
 // description: Response로 받은 파일 압축 해제 처리
@@ -149,24 +151,43 @@ export const LANGUAGE = (language: string) => {
   if (language === "zh-cht") return "繁體中文";
 };
 
-// description: 초기 리소스 다운로드 //
-export const electrifiedInitialize = async (country_code: string) => {
-  let flag = true;
+// description: tauri http api로 구현한 초기 리소스 다운로드 //
+export const electrifiedInitialize_p = async (country_code: string) => {
   let result = '';
+
+  // description: 전송할 Body 
+  const body = http.Body.json({
+    app_id: uuidv4(), 
+    app_version: APP_VERSION, 
+    country_code
+  });
+
+  await http.fetch(ELECTRIFIED_INITIALIZE_URL, {
+    method: POST,
+    responseType: http.ResponseType.Binary,
+    body,
+  }).then((response) => {
+    console.log(response);
+    unzip(response?.data);
+  }).catch((e) => {
+    console.error(e);
+    result = e;
+  });
+  
+  return result;
+};
+
+// description: axios로 구현한 초기 리소스 다운로드 //
+export const electrifiedInitialize = async (country_code: string) => {
+  let result = '';
+
   await axios({
     url: ELECTRIFIED_INITIALIZE_URL,
-    method: "POST",
+    method: POST,
     data: { app_id: uuidv4(), app_version: APP_VERSION, country_code },
-    responseType: 'blob',
-    // responseType: ARRAY_BUFFER,
+    responseType: BLOB,
     onDownloadProgress: (progressEvent) => {
       console.log(progressEvent.loaded);
-        // flag = false;
-      // const total = parseFloat(progressEvent.currentTarget.responseHeaders['Content-Length']);
-      // const current = progressEvent.currentTarget.response.length;
-  
-      // let percentCompleted = Math.floor(current / total * 100);
-      // console.log('completed: ', percentCompleted);
     }
   }).then((response) => {
     unzip(response?.data);
@@ -184,9 +205,9 @@ export const checkElectrifiedVersion = async (
 ) => {
   axios({
     url: ELECTRIFIED_VERSION_CHECK_URL,
-    method: "POST",
+    method: POST,
     data: { electrified_version, country_code },
-    responseType: ARRAY_BUFFER,
+    responseType: BLOB,
   }).then((response) => unzip(response?.data));
 };
 
@@ -197,9 +218,9 @@ export const checkTranslationVersion = async (
 ) => {
   axios({
     url: TRANSLATION_VERSION_CHECK_URL,
-    method: "POST",
+    method: POST,
     data: { translation_version, country_code },
-    responseType: ARRAY_BUFFER,
+    responseType: BLOB,
   }).then((response) => unzip(response?.data));
 };
 
@@ -207,12 +228,15 @@ export const checkTranslationVersion = async (
 export const loadResource = async (data: Array<Electrified>) => {
   // description: 반환 할 데이터 //
   const result: Array<IAssetValue> = [];
+  // description: 초기 이미지 로드 //
   await loadBefore(result, data);
+  // description: 나머지 이미지 로드 //
   loadAfter(result, data);
+  // description: 로드 된 이미지 URL 리스트 반환 //
   return result;
 };
 
-// description: resource load 2 //
+// description: 초기 이미지 로드 //
 const loadBefore = async (result: Array<IAssetValue>, data: any) => {
   for (const electrified of data) {
     // description: SELECT Page Resource 추가 //
@@ -223,15 +247,10 @@ const loadBefore = async (result: Array<IAssetValue>, data: any) => {
     load360(result, electrified);
     // description: Main Page Resource 추가 //
     loadMain(result, electrified);
-    // description: Highlights Resource 추가 //
-    // for (const item of electrified.highlights) loadClassification(result, electrified, item, HIGHLIGHTS);
-    // description: Charging Resource 추가 //
-    // for (const item of electrified.charging) loadClassification(result, electrified, item, CHARGING);
-    // description: Benefits Resource 추가 //
-    // for (const item of electrified.benefits) loadClassification(result, electrified, item, BENEFITS);
   }
 }
 
+// description: 나머지 이미지 로드 //
 const loadAfter = async (result: Array<IAssetValue>, data: any) => {
   for (const electrified of data) {
     // description: Highlights Resource 추가 //
@@ -342,6 +361,7 @@ const getResorceType = (resource_name: string) => {
 
 // description: Template 별 resource 추가 //
 const setTemplateResource = async (result: Array<IAssetValue>, item: any, electrified_item_name: string, classification: string) => {
+  // description: 
   if(item.type === TEMPLATE_1) result.push(await getAssetValue1(electrified_item_name, item as Template_1, classification));
   if(item.type === TEMPLATE_2) result.push(await getAssetValue2(electrified_item_name, item as Template_2, classification));
   if(item.type === TEMPLATE_3) result.push(await getAssetValue(electrified_item_name, (item as Template_3).image, "", item.sequence_number, classification));

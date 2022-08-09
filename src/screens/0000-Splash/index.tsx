@@ -20,7 +20,8 @@ function Splash() {
   return (
     <div className="splash-background">
       <div className="splash-container">
-        <Lottie style={{width: '26.354vw', height: '8.229vw'}} options={SPLASH_LOTTIE_OPTIONS} />
+        {/* <Lottie style={{width: '26.354vw', height: '8.229vw'}} options={SPLASH_LOTTIE_OPTIONS} /> */}
+        <Lottie style={{width: '40vw', height: '15vw'}} options={SPLASH_LOTTIE_OPTIONS} />
       </div>
     </div>
   );

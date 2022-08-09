@@ -12,8 +12,13 @@ export const LAUNCHER_SAVE_ID_PW = 'Save ID Password';
 // description: just value //
 export const APP_VERSION = '0.0';
 export const ARRAY_BUFFER = 'arraybuffer';
+export const BLOB = 'blob';
 export const DATAJSON = 'data.json';
 
+export const GET = 'GET';
+export const POST = 'POST';
+export const PATCH = 'PATCH';
+export const DELETE = 'DELETE';
 
 // description: 화면 classification value //
 export const SELECTOR = 'selector';

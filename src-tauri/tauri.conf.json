@@ -15,10 +15,15 @@
     "allowlist": {
       "all": true,
       "fs": {
+        "all": true,
         "scope": ["$DOCUMENT/**", "$DOCUMENT/*", "$DOCUMENT"]
       },
       "path": {
-        "all": false
+        "all": true
+      },
+      "http": {
+        "all": true,
+        "scope": ["http://51.116.98.90:4000/apis/*"]
       }
     },
     "bundle": {
@@ -45,9 +50,17 @@
       "shortDescription": "",
       "targets": "all",
       "windows": {
+        "allowDowngrades": true,
         "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": ""
+        "digestAlgorithm": null,
+        "timestampUrl": null,
+        "tsp": false,
+        "webviewFixedRuntimePath": null,
+        "webviewInstallMode": {
+          "silent": false,
+          "type": "downloadBootstrapper"
+        },
+        "wix": null
       }
     },
     "updater": {

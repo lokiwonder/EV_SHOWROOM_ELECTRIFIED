@@ -61,6 +61,7 @@ function SelectCountry() {
     setCountinueFlage(true);
     electrifiedInitialize(country.code).then((r) => {
       setTestText(r);
+      setSettings();
       // relaunch();
     });
   };
@@ -91,7 +92,7 @@ function SelectCountry() {
       <div className="country-select-box">
         <img className="counter-select-logo-img" src={SelectLanguageLogo} />
         <span className="showroom-logo h2 white">
-          Plaese select your country
+          Please select your country
         </span>
         <div className="country-selector" onClick={onInputHandler}>
           {!country.name ? (
