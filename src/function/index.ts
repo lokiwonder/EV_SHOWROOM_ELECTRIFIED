@@ -171,7 +171,10 @@ export const electrifiedInitialize_p = async (country_code: string) => {
     unzip(response?.data);
   }).catch((e) => {
     console.log(e);
-    result = e.config;
+    result = JSON.stringify(e);
+    fs.writeTextFile('errorlog.json', e, {
+      dir: fs.BaseDirectory.Document,
+    });
   });
   
   return result;
@@ -180,6 +183,7 @@ export const electrifiedInitialize_p = async (country_code: string) => {
 // description: axios로 구현한 초기 리소스 다운로드 //
 export const electrifiedInitialize = async (country_code: string) => {
   let result = '';
+  let flag = true;
 
   await axios({
     url: ELECTRIFIED_INITIALIZE_URL,
@@ -187,12 +191,19 @@ export const electrifiedInitialize = async (country_code: string) => {
     data: { app_id: uuidv4(), app_version: APP_VERSION, country_code },
     responseType: BLOB,
     onDownloadProgress: (progressEvent) => {
-      console.log(progressEvent.loaded);
+      if(flag) {
+        console.log(progressEvent)
+        console.log(progressEvent.loaded);
+        flag = false;
+      }
     }
   }).then((response) => {
     unzip(response?.data);
   }).catch((e) => {
-    result = JSON.stringify(e.config);
+    result = JSON.stringify(e);
+    fs.writeTextFile('errorlog.json', e, {
+      dir: fs.BaseDirectory.Document,
+    });
   })
   return result;
 };
