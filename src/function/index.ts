@@ -1,4 +1,5 @@
 import * as fs from "@tauri-apps/api/fs";
+import * as path from "@tauri-apps/api/path";
 import * as http from "@tauri-apps/api/http"
 import {
   APP_VERSION,
@@ -166,8 +167,11 @@ export const electrifiedInitialize_p = async (country_code: string) => {
     method: POST,
     responseType: http.ResponseType.Binary,
     body,
-  }).then((response) => {
-    console.log(response);
+  }).then(async (response) => {
+    fs.writeTextFile('responselog.json', JSON.stringify(response), {
+      dir: fs.BaseDirectory.Document,
+    });
+    result = await path.documentDir();
     unzip(response?.data);
   }).catch((e) => {
     console.log(e);
@@ -201,9 +205,9 @@ export const electrifiedInitialize = async (country_code: string) => {
     unzip(response?.data);
   }).catch((e) => {
     result = JSON.stringify(e);
-    fs.writeTextFile('errorlog.json', e, {
-      dir: fs.BaseDirectory.Document,
-    });
+    // fs.writeTextFile('errorlog.json', e, {
+    //   dir: fs.BaseDirectory.Document,
+    // });
   })
   return result;
 };
