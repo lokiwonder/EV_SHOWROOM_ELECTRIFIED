@@ -30,6 +30,8 @@ function App() {
   // description: 마우스 오른쪽 버튼 막기 //
   document.addEventListener("contextmenu", (event) => event.preventDefault());
 
+  console.log(setting);
+
   return (
     <Router>
       {

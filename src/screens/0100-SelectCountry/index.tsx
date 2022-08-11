@@ -15,7 +15,6 @@ import { electrifiedInitialize, DATA } from "src/function";
 
 import "./style.css";
 
-
 function SelectCountry() {
   const { setSetting } = useSettingStore();
 
@@ -27,7 +26,7 @@ function SelectCountry() {
   const [continue_flag, setCountinueFlage] = useState<boolean>(false);
 
   // ! test ! //
-  const [test_Text, setTestText] = useState<string>('');
+  const [test_Text, setTestText] = useState<string>("");
 
   const onBackgroundClickHandler = () => {
     if (input_status) {
@@ -53,7 +52,12 @@ function SelectCountry() {
   };
 
   const setSettings = async () => {
-    const setting = (await DATA()).settting;
+    const data = await DATA();
+    let setting = data.setting;
+    
+    console.log(data);
+    console.log(setting);
+
     setSetting(setting);
   };
 
@@ -61,7 +65,7 @@ function SelectCountry() {
     setCountinueFlage(true);
     electrifiedInitialize(country.code).then((r) => {
       setTestText(r);
-      setSettings();
+      setTimeout(() => setSettings(), 5000);
       // relaunch();
     });
   };
@@ -117,7 +121,7 @@ function SelectCountry() {
 
   // component //
   const DownloadView = () => {
-    return  (
+    return (
       <div className="country-background">
         <div className="country-container">
           <div className="spinner-container">
@@ -127,39 +131,39 @@ function SelectCountry() {
                 options={SPINNER_LOTTIE_OPTIONS}
               />
               <p className="h5 white">Downloading Resource...</p>
-              { test_Text && (<p className="b4 active-red">{test_Text}</p>) }
+              {test_Text && <p className="b4 active-red">{test_Text}</p>}
             </div>
           </div>
         </div>
-    </div>
-    )
-  }
+      </div>
+    );
+  };
 
   // component //
   const SelectView = () => {
     return (
       <div className="country-background" onClick={onBackgroundClickHandler}>
-      <div className="country-container">
-        <>
-          {!input_status ? <SelectCountryView /> : <SelectBox />}
-          <div className="select-country-nav">
-            <img className="select-nav-logo" src={HyundaiLogo2} />
-            {country.name && (
-              <button
-                onClick={onContinueHandler}
-                className="confirm-button white"
-              >
-                Continue
-              </button>
-            )}
-          </div>
-        </>
+        <div className="country-container">
+          <>
+            {!input_status ? <SelectCountryView /> : <SelectBox />}
+            <div className="select-country-nav">
+              <img className="select-nav-logo" src={HyundaiLogo2} />
+              {country.name && (
+                <button
+                  onClick={onContinueHandler}
+                  className="confirm-button white"
+                >
+                  Continue
+                </button>
+              )}
+            </div>
+          </>
+        </div>
       </div>
-    </div>
-    )
-  }
+    );
+  };
 
-  return (<>{ continue_flag ? (<DownloadView />) : (<SelectView />)}</>);
+  return <>{continue_flag ? <DownloadView /> : <SelectView />}</>;
 }
 
 export default SelectCountry;
