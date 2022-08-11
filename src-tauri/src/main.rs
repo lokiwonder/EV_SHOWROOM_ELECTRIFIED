@@ -3,6 +3,7 @@
   windows_subsystem = "windows"
 )]
 
+use tauri::Manager;
 use tauri::SystemTray;
 use tauri_plugin_autostart::MacosLauncher;
 
