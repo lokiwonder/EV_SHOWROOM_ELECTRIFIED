@@ -20,6 +20,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-typescript-checkmark": "^1.2.2",
+    "regedit": "^5.1.1",
     "uuid": "^8.3.2",
     "wait-on": "^6.0.1",
     "web-vitals": "^2.1.4",

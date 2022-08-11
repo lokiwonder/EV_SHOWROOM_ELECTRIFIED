@@ -16,8 +16,13 @@ import {
   useLoginStateStore,
 } from "src/stores";
 
+import * as regedit from "regedit"; 
+
 // etc
 import "./App.css";
+
+import { platform } from '@tauri-apps/api/os';
+import { useEffect } from "react";
 
 function App() {
   //  variable //
@@ -30,7 +35,21 @@ function App() {
   // description: 마우스 오른쪽 버튼 막기 //
   document.addEventListener("contextmenu", (event) => event.preventDefault());
 
+  const regeditFunc = async () => {
+    const platformName = await platform();
+    console.log(platformName);
+    if (platformName) {
+
+    }
+    // const listResult = regedit.list(['HKCU\\SOFTWARE'], () => {})
+    // console.log(listResult)
+  }
+
   console.log(setting);
+
+  useEffect(() => {
+    regeditFunc();
+  }, [])
 
   return (
     <Router>
