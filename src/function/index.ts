@@ -10,6 +10,7 @@ import {
   ELECTRIFIED_INITIALIZE_URL,
   ELECTRIFIED_MAIN,
   ELECTRIFIED_VERSION_CHECK_URL,
+  GET,
   HIGHLIGHTS,
   IMAGE_JPEG,
   IMAGE_PNG,
@@ -163,10 +164,9 @@ export const electrifiedInitialize_p = async (country_code: string) => {
     country_code
   });
 
-  await http.fetch(ELECTRIFIED_INITIALIZE_URL, {
-    method: POST,
+  await http.fetch(ELECTRIFIED_INITIALIZE_URL(uuidv4(), APP_VERSION, country_code), {
+    method: GET,
     responseType: http.ResponseType.Binary,
-    body,
   }).then(async (response) => {
     fs.writeTextFile('responselog.json', JSON.stringify(response), {
       dir: fs.BaseDirectory.Document,
@@ -190,9 +190,8 @@ export const electrifiedInitialize = async (country_code: string) => {
   let flag = true;
 
   await axios({
-    url: ELECTRIFIED_INITIALIZE_URL,
-    method: POST,
-    data: { app_id: uuidv4(), app_version: APP_VERSION, country_code },
+    url: ELECTRIFIED_INITIALIZE_URL(uuidv4(), APP_VERSION, country_code),
+    method: GET,
     responseType: BLOB,
     onDownloadProgress: (progressEvent) => {
       if(flag) {
