@@ -3,11 +3,14 @@
   windows_subsystem = "windows"
 )]
 
+use tauri::SystemTray;
 use tauri_plugin_autostart::MacosLauncher;
 
 fn main() {
+  let system_tray = SystemTray::new();
   tauri::Builder::default()
-    .plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, false))
+    .plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, true))
+    .system_tray(system_tray)
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
