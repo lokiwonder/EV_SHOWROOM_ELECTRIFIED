@@ -67,6 +67,9 @@
         "wix": null
       }
     },
+    "security": {
+      "csp": null
+    },
     "updater": {
       "active": false
     },
