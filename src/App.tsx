@@ -16,7 +16,7 @@ import {
   useLoginStateStore,
 } from "src/stores";
 
-import * as regedit from "regedit"; 
+// import * as regedit from "regedit"; 
 
 // etc
 import "./App.css";
@@ -39,8 +39,8 @@ function App() {
     const platformName = await platform();
     console.log(platformName);
     if (platformName === 'win32') {
-      const listResult = regedit.list(['HKCU\\SOFTWARE'], () => {})
-      console.log(listResult)
+      // const listResult = regedit.list(['HKCU\\SOFTWARE'], () => {})
+      // console.log(listResult)
     }
   }
 
