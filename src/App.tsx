@@ -38,11 +38,10 @@ function App() {
   const regeditFunc = async () => {
     const platformName = await platform();
     console.log(platformName);
-    if (platformName) {
-
+    if (platformName === 'win32') {
+      const listResult = regedit.list(['HKCU\\SOFTWARE'], () => {})
+      console.log(listResult)
     }
-    // const listResult = regedit.list(['HKCU\\SOFTWARE'], () => {})
-    // console.log(listResult)
   }
 
   console.log(setting);
