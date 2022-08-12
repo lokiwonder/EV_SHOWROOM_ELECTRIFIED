@@ -28,6 +28,9 @@
       "http": {
         "all": true,
         "scope": ["http://51.116.98.90:4000/**"]
+      },
+      "notification": {
+        "all": true
       }
     },
     "bundle": {

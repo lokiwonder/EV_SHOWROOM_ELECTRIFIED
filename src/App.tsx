@@ -1,4 +1,5 @@
 // react-library
+import { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 // screens | components
 import {
@@ -18,11 +19,10 @@ import {
 
 // import * as regedit from "regedit"; 
 
+import { isPermissionGranted, requestPermission, sendNotification } from '@tauri-apps/api/notification';
+
 // etc
 import "./App.css";
-
-import { platform } from '@tauri-apps/api/os';
-import { useEffect } from "react";
 
 function App() {
   //  variable //
@@ -35,19 +35,24 @@ function App() {
   // description: 마우스 오른쪽 버튼 막기 //
   document.addEventListener("contextmenu", (event) => event.preventDefault());
 
-  const regeditFunc = async () => {
-    const platformName = await platform();
-    console.log(platformName);
-    if (platformName === 'win32') {
-      // const listResult = regedit.list(['HKCU\\SOFTWARE'], () => {})
-      // console.log(listResult)
+  let permissionGranted = isPermissionGranted();
+  const setNotification = async () => {
+    let permissionGranted = await isPermissionGranted();
+    if (!permissionGranted) {
+      const permission = await requestPermission();
+      permissionGranted = permission === 'granted';
     }
   }
 
   console.log(setting);
 
   useEffect(() => {
-    regeditFunc();
+    setNotification();
+    setTimeout(() => {
+      if (permissionGranted) {
+        sendNotification('Test Notification!!');
+      }
+    }, 10000);
   }, [])
 
   return (
