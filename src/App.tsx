@@ -50,7 +50,7 @@ function App() {
     setNotification();
     setTimeout(() => {
       if (permissionGranted) {
-        sendNotification({ title: 'EV CMS', body: 'Tauri is awesome!' });
+        sendNotification({ title: 'EV CMS', body: 'Tauri is awesome!', icon: '32x32.png' });
       }
     }, 5000);
   }, [])

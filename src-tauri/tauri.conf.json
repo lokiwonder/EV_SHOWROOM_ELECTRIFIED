@@ -84,7 +84,9 @@
         "fullscreen": false,
         "resizable": false,
         "decorations": false,
-        "center": true
+        "center": true,
+        "title": "EV Contents management sys.",
+        "visible": false
       }
     ]
   }
