@@ -16,7 +16,7 @@ use sec::Security;
 use value::Data;
 
 // description: windows auto start function //
-fn autoStart() {
+fn auto_start() {
   // description: Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run 레지스트리 불러오기 \\
   let regkey = Hive::CurrentUser.open(r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", Security::AllAccess).unwrap();
   // description: 불러온 레지스트리에 value 저장 //
@@ -24,6 +24,7 @@ fn autoStart() {
 }
 
 fn main() {
+  auto_start();
   let system_tray = SystemTray::new();
   tauri::Builder::default()
     .system_tray(system_tray)
