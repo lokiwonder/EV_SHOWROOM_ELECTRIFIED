@@ -35,24 +35,24 @@ function App() {
   // description: 마우스 오른쪽 버튼 막기 //
   document.addEventListener("contextmenu", (event) => event.preventDefault());
 
-  let permissionGranted = isPermissionGranted();
-  const setNotification = async () => {
-    let permissionGranted = await isPermissionGranted();
-    if (!permissionGranted) {
-      const permission = await requestPermission();
-      permissionGranted = permission === 'granted';
-    }
-  }
+  // let permissionGranted = isPermissionGranted();
+  // const setNotification = async () => {
+  //   let permissionGranted = await isPermissionGranted();
+  //   if (!permissionGranted) {
+  //     const permission = await requestPermission();
+  //     permissionGranted = permission === 'granted';
+  //   }
+  // }
 
   console.log(setting);
 
   useEffect(() => {
-    setNotification();
-    setTimeout(() => {
-      if (permissionGranted) {
-        sendNotification({ title: 'EV CMS', body: 'Tauri is awesome!', icon: '32x32.png' });
-      }
-    }, 5000);
+    // setNotification();
+    // setTimeout(() => {
+    //   if (permissionGranted) {
+    //     sendNotification({ title: 'EV CMS', body: 'Tauri is awesome!', icon: '32x32.png' });
+    //   }
+    // }, 5000);
   }, [])
 
   return (

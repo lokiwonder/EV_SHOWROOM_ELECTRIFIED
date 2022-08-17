@@ -86,7 +86,7 @@
         "decorations": false,
         "center": true,
         "title": "EV Contents management sys.",
-        "visible": false
+        "visible": true
       }
     ]
   }
